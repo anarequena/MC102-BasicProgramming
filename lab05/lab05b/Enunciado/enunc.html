@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 05b</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 05b - Dist&acirc;ncia de Tchonsky</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 22/04/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 4 <br> <br> <hr> <br>
+
+    <p align="justify">
+    Um problema bastante estudado em Ci&ecirc;ncia da Computa&ccedil;&atilde;o &eacute; o de encontrar um padr&atilde;o de caracteres, geralmente definido por uma <i>string</i> curta, em uma grande sequ&ecirc;ncia de caracteres ou em um texto, que pode ser visto como uma <i>string</i> longa. Tal problema &eacute; encontrado em v&aacute;rias aplica&ccedil;&otilde;es, tais como busca de uma palavra em um texto, detec&ccedil;&atilde;o de pl&aacute;gio, corre&ccedil;&atilde;o ortogr&aacute;fica, an&aacute;lise de sequ&ecirc;ncias de DNA e RNA, entre outras. No entanto, nem sempre estamos interessados em encontrar apenas o padr&atilde;o exato, mas tamb&eacute;m padr&otilde;es similares a ele.
+
+Nesses casos, um m&eacute;todo muito comum &eacute; o seguinte. Primeiro, define-se uma m&eacute;trica para <i>strings</i>, isto &eacute;, define-se uma fun&ccedil;&atilde;o que, dadas duas <i>strings</i>, devolve um n&uacute;mero que indica qual a dist&acirc;ncia (ou similaridade) entre essas <i>strings</i>. Depois, encontram-se todos os padr&otilde;es de caracteres que possuem uma dist&acirc;ncia menor do que um certo valor, em rela&ccedil;&atilde;o ao padr&atilde;o original de busca.
+    </p>
+
+    <p align="justify">
+    Uma das m&eacute;tricas mais simples para <i>strings</i> &eacute; a chamada Dist&acirc;ncia de Hamming. Dadas duas <i>strings</i> de mesmo tamanho, a dist&acirc;ncia de Hamming entre elas &eacute; igual ao n&uacute;mero de posi&ccedil;&otilde;es nas quais elas diferem entre si. Dito de outra forma, a dist&acirc;ncia de Hamming entre elas &eacute; igual ao menor n&uacute;mero de substitui&ccedil;&otilde;es necess&aacute;rias para transformar uma <i>string</i> na outra. Ela foi definida pela primeira vez por Richard Wesley Hamming (por isso o nome da m&eacute;trica) e foi utilizada na detec&ccedil;&atilde;o e corre&ccedil;&atilde;o de erros em transmiss&otilde;es de sinais de telecomunica&ccedil;&atilde;o, que podem ser vistos como sequ&ecirc;ncias de <i>bits</i>.
+    </p>
+        
+    <p align="justify">
+    Um dos problemas da dist&acirc;ncia de Hamming &eacute; que ela s&oacute; faz sentido quando aplicada sobre <i>strings</i> de mesmo tamanho. Por essa raz&atilde;o, outra m&eacute;trica bastante popular e que generaliza a dist&acirc;ncia de Hamming &eacute; a chamada Dist&acirc;ncia de Levenshtein, tamb&eacute;m conhecida como dist&acirc;ncia de edi&ccedil;&atilde;o. Dadas duas <i>strings</i>, a dist&acirc;ncia de Levenshtein entre elas &eacute; igual ao n&uacute;mero m&iacute;nimo de opera&ccedil;&otilde;es necess&aacute;rias para transformar uma <i>string</i> na outra. As opera&ccedil;&otilde;es poss&iacute;veis s&atilde;o inser&ccedil;&atilde;o, remo&ccedil;&atilde;o ou substitui&ccedil;&atilde;o de um caractere. Esta m&eacute;trica foi definida pela primeira vez por Vladimir Iosifovich Levenshtein.
+    </p>
+
+    <p align="justify">
+    Outras m&eacute;tricas existem e, de modo geral, uma m&eacute;trica visa cobrir as fraquezas das outras em determinados contextos. Com o objetivo de eliminar a necessidade de se criar diversas m&eacute;tricas, Noel Tchonsky, um not&aacute;vel linguista, teve a seguinte ideia: criar uma l&iacute;ngua que facilitasse a cria&ccedil;&atilde;o de uma m&eacute;trica &uacute;nica para as palavras (ou <i>strings</i>) que as constituem. Basicamente, ele criou uma l&iacute;ngua com a seguinte propriedade: todas as palavras (ou <i>strings</i>) que possuem exatamente as mesmas letras (ou caracteres) s&atilde;o equivalentes. Por exemplo, as palavras "aatt", "atat", "atta", "taat", "atat", "tata" e "ttaa" s&atilde;o todas equivalentes e querem dizer "Pindamonhangaba" em Portugu&ecirc;s. Por outro lado, as palavras "ta" e "at" s&atilde;o equivalentes entre si, mas n&atilde;o s&atilde;o equivalentes &agrave;s citadas anteriormente, pois aquelas sete possuem dois "t" e dois "a", enquanto estas duas possuem apenas uma letra de cada. Ali&aacute;s, "ta" e "at" querem dizer "aten&ccedil;&atilde;o" em Portugu&ecirc;s.
+    </p> 
+
+    <p align="justify">
+    Considerando essa nova l&iacute;ngua, Tchonsky prop&ocirc;s a cria&ccedil;&atilde;o de uma nova m&eacute;trica, chamada Dist&acirc;ncia de Tchonsky. Dadas duas <i>strings</i> <tt>A</tt> e <tt>B</tt>, seja <tt>C(A,B)</tt> o n&uacute;mero de caracteres em comum entre elas, considerando que: (i) os caracteres n&atilde;o s&atilde;o "sens&iacute;veis ao caso", ou seja, letras mai&uacute;sculas e min&uacute;sculas s&atilde;o consideradas equivalentes, e (ii) os caracteres repetidos devem ser contados repetidamente. Por exemplo, supondo que <tt>A = AatT</tt> e <tt>B = tTaa</tt>, n&oacute;s temos que <tt>C(A,B) = 4</tt>. Por outro lado, supondo que <tt>A = aAtt</tt> e <tt>B = DaT</tt>, n&oacute;s temos que <tt>C(A,B) = 2</tt>. A dist&acirc;ncia de Tchonsky entre <tt>A</tt> e <tt>B</tt> &eacute; igual a <tt>d(A,B) = |A| + |B| - 2 &times; C(A,B)</tt>, sendo que <tt>|A|</tt> denota o tamanho de <tt>A</tt> e <tt>|B|</tt> denota o tamanho de <tt>B</tt>.     
+    </p>
+
+    <p align="justify">
+    Al&eacute;m de linguista, Noel Tchonsky &eacute; m&uacute;sico e atualmente encontra-se em turn&ecirc; internacional com seu quarteto de cordas chamado "&Eacute; o Tchonsky". Por essa raz&atilde;o, ele lhe incumbiu a tarefa de implementar um programa em C que, dadas duas <i>strings</i>, calcula a dist&acirc;ncia de Tchonsky entre elas.      
+    </p>
+
+    <h3>Entrada</h3>
+
+    A entrada &eacute; constitu&iacute;da de duas linhas:
+    <ul>
+      <li>A primeira linha cont&eacute;m a <i>string</i> <tt>A</tt>, <tt>1 &leq; |A| &leq; 100</tt>;</li>
+      <li>A segunda linha cont&eacute;m a <i>string</i> <tt>B</tt>, <tt>1 &leq; |B| &leq; 100</tt>.</li>
+    </ul>
+    Considere que as <i>strings</i> s&atilde;o constitu&iacute;das apenas por letras.
+
+    <h3>Sa&iacute;da</h3>
+
+    Seu programa deve imprimir a resposta no seguinte formato: "<tt>Distancia de Tchonsky = X</tt>", onde <tt>X</tt> &eacute; igual &agrave; dist&acirc;ncia de Tchonsky entre <tt>A</tt> e <tt>B</tt>. 
+
+    <h3>Exemplos</h3>
+    <table cellpadding='2' cellspacing='0' border='1'>
+      <tr align='center'><td width='15px'><b><tt>#</tt></b></td><td width='150px'><b><tt>Entrada</tt></b></td><td width='250px'><b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align='left' valign='top'><td>1</td><td><tt>AatT<br/>tTaa</tt></td><td><tt>Distancia de Tchonsky = 0</tt></td></tr>
+      <tr align='left' valign='top'><td>2</td><td><tt>aAtt<br/>DaT</tt></td><td><tt>Distancia de Tchonsky = 3</tt></td></tr>
+      <tr align='left' valign='top'><td>3</td><td><tt>A<br/>z</tt></td><td><tt>Distancia de Tchonsky = 2</tt></td></tr>
+      <tr align='left' valign='top'><td>4</td><td><tt>HipOPOtomonStroSESquipEDAliOFObIA<br/>NaMAStE</tt></td><td><tt>Distancia de Tchonsky = 26</tt></td></tr>
+      <tr align='left' valign='top'><td>5</td><td><tt>ChA<br/>pnEUmouLTraMicrolAscOuscopicosSilicOVulcAnoconIOTiCo</tt></td><td><tt>Distancia de Tchonsky = 51</tt></td></tr>
+    </table><br>
+</body></html>

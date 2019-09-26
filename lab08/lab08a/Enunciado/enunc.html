@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>Laborat&oacute;rio 08a</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 08a - BigCalc</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 11/05/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 5 <br> <br> <hr> <br>
+
+    <p align="justify">
+      Um dos primeiros instrumentos criados para c&aacute;lculos aritm&eacute;ticos foi o &aacute;baco, inventado na Mesopot&acirc;mia e aperfei&ccedil;oado pelos chineses e romanos. Durante aproximadamente 24 s&eacute;culos, o &aacute;baco, que realiza apenas contas pequenas, foi o &uacute;nico e principal mecanismo existente para calcular. Naquela &eacute;poca, somas de grandes n&uacute;meros, como por exemplo o de &oacute;rbitas e movimento dos planetas, eram feitas inteiramente a m&atilde;o, e levavam anos para serem completadas pelos matem&aacute;ticos.</a>.
+    </p>
+    
+    <p align="justify">
+      A primeira m&aacute;quina de somar, totalmente mec&acirc;nica, foi constru&iacute;da em 1642 pelo franc&ecirc;s Blaise Pascal, numa tentativa de ajudar seu pai, funcion&aacute;rio p&uacute;blico, que passava horas e horas somando listas intermin&aacute;veis de cifras. Entretanto, a m&aacute;quina de Pascal nunca foi muito bem aceita, j&aacute; que os funcion&aacute;rios, que eram pagos justamente para realizar c&aacute;lculos &agrave; m&atilde;o, viram no dispositivo uma amea&ccedil;a a seus trabalhos e se recusaram a utiliz&aacute;-la. Al&eacute;m disso, a m&aacute;quina de Pascal realizava apenas opera&ccedil;&otilde;es de adi&ccedil;&atilde;o e subtra&ccedil;&atilde;o.
+      </p>
+    
+    <p align="justify">
+      Mais tarde, Gottfried Leibniz gastou quatro anos modelando uma calculadora mec&acirc;nica que realizava, al&eacute;m da adi&ccedil;&atilde;o e subtra&ccedil;&atilde;o, a divis&atilde;o e multiplica&ccedil;&atilde;o, al&eacute;m de conseguir extrair a raiz quadrada.
+    </p>
+    
+    <p align="justify">
+       Precursoras dos computadores, as calculadoras eletr&ocirc;nicas lan&ccedil;aram as bases da l&oacute;gica de funcionamento de todos os aparelhos eletr&ocirc;nicos atuais. A primeira m&aacute;quina de calcular eletr&ocirc;nica, Mark I, criada no ano de 1944 pelo engenheiro americano Howard Aiken, tinha o tamanho de uma casa, 800 quil&ocirc;metros de fios, 18 mil v&aacute;lvulas e pesava 32 toneladas. Tudo isso apenas para fazer as quatro opera&ccedil;&otilde;es aritm&eacute;ticas.
+    </p>
+    
+    <p align="justify">
+      Hoje, al&eacute;m das calculadoras de bolso comum, existem as calculadoras cient&iacute;ficas, que incluem c&aacute;lculos trigonom&eacute;tricos e estat&iacute;sticos, e as calculadoras gr&aacute;ficas, capazes de desenhar gr&aacute;ficos a partir de fun&ccedil;&otilde;es. Entretanto, grande parte das calculadoras atuais apresentam em seu display precis&atilde;o entre 9 a 12 d&iacute;gitos apenas.
+    </p>
+
+    <p align="justify">
+      Os formatos <tt>int</tt> e <tt>long int</tt> da linguagem C s&atilde;o capazes de armazenar n&uacute;meros inteiros com at&eacute; 10 e 20 d&iacute;gitos, respectivamente. Como realizar ent&atilde;o a adi&ccedil;&atilde;o de dois n&uacute;meros inteiros com, por exemplo, 50 digitos cada? Sua tarefa neste laborat&oacute;rio ser&aacute; implementar a soma, a subtra&ccedil;&atilde;o e a multiplica&ccedil;&atilde;o entre dois n&uacute;meros inteiros com um n&uacute;mero arbitr&aacute;rio de d&iacute;gitos. 
+    </p>
+    
+    <p align="justify">
+      Al&eacute;m de identificar a opera&ccedil;&atilde;o a ser realizada, e armazenar os dois operandos a partir da entrada, voc&ecirc; dever&aacute; implementar as fun&ccedil;&otilde;es das tr&ecirc;s opera&ccedil;&otilde;es aritm&eacute;ticas utilizando os esbo&ccedil;os das fun&ccedil;&otilde;es dispon&iacute;veis <a href="aux/esboco.c">neste c&oacute;digo fonte</a>. Voc&ecirc; n&atilde;o deve modificar os par&acirc;metros das fun&ccedil;&otilde;es j&aacute; existentes. As tr&ecirc;s fun&ccedil;&otilde;es que devem ser implementadas s&atilde;o:
+    </p>
+    
+    <p align="justify">
+      <tt>void add(int *n1, int tam_n1, int *n2, int tam_n2, int *result);</tt>
+      <ul>
+        <li>Fun&ccedil;&atilde;o que realiza a adi&ccedil;&atilde;o dos n&uacute;meros <tt>n1</tt> e <tt>n2</tt>, de tamanhos <tt>tam_n1</tt> e <tt>tam_n2</tt> respectivamente, armazenando o resultado em <tt>result</tt>.</li>
+      </ul>
+    </p>
+    
+    <p align="justify">
+      <tt>void substract(int *n1, int tam_n1, int *n2, int tam_n2, int *result);</tt>
+      <ul>
+        <li>Fun&ccedil;&atilde;o que subtrai <tt>n2</tt> de <tt>n1</tt>, de tamanhos <tt>tam_n2</tt> e <tt>tam_n1</tt> respectivamente, com <tt>n1 &geq; n2</tt>, armazenando o resultado em <tt>result</tt>.</li>
+      </ul>
+    </p>
+    
+    <p align="justify">
+      <tt>void multiply(int *n1, int tam_n1, int *n2, int tam_n2, int *result);</tt>
+      <ul>
+        <li>Fun&ccedil;&atilde;o que realiza a multiplica&ccedil;&atilde;o dos n&uacute;meros <tt>n1</tt> e <tt>n2</tt>, de tamanhos <tt>tam_n1</tt> e <tt>tam_n2</tt> respectivamente, armazenando o resultado em <tt>result</tt>.</li>
+      </ul>
+    </p>
+    
+    <p align="justify">
+      Se necess&aacute;rio, voc&ecirc; pode utilizar as fun&ccedil;&otilde;es <tt>add</tt> e <tt>subtract</tt> na implementa&ccedil;&atilde;o da fun&ccedil;&atilde;o <tt>multiply</tt>.
+    </p>
+
+    <h3>Entrada</h3>
+
+    <ul>
+      <li>A primeira linha da entrada consiste de 2 n&uacute;meros inteiros, <tt>X</tt> <tt>Y</tt>, e um caractere, <tt>C</tt>, onde:
+      <ul>
+        <li><tt>X</tt> representa o n&uacute;mero de d&iacute;gitos do primeiro n&uacute;mero, <tt>n1</tt>, com <tt>X &geq; 1</tt>;</li>
+        <li><tt>Y</tt> representa o n&uacute;mero de d&iacute;gitos do segundo n&uacute;mero, <tt>n2</tt>, com <tt>Y &geq; 1</tt>;</li>
+        <li><tt>C</tt> representa a opera&ccedil;&atilde;o a ser realizada, onde:</li>
+        <ul>
+          <li><tt>A</tt> representa o operador de adi&ccedil;&atilde;o (<tt>n1 + n2</tt>);</li>
+          <li><tt>M</tt> representa o operador de multiplica&ccedil;&atilde;o (<tt>n1 * n2</tt>);</li>
+          <li><tt>S</tt> representa o operador de subtra&ccedil;&atilde;o (<tt>n1 - n2</tt>);</li>
+          
+        </ul>
+      </ul>
+      <li>As duas pr&oacute;ximas linhas cont&eacute;m <tt>X</tt> e <tt>Y</tt> d&iacute;gitos cada, representado os n&uacute;meros <tt>n1</tt> e <tt>n2</tt> respectivamente, com <tt>n1 &geq; n2</tt>.</li>
+     
+    </ul>
+
+    <h3>Sa&iacute;da</h3>
+    <ul>
+      <li>Seu programa deve imprimir o resultado da opera&ccedil;&atilde;o realizada, no formato '<tt>X</tt>'.</li>
+    </ul>
+    <h3>Exemplos</h3>
+    <table cellpadding='2' cellspacing='0' border='1'>
+      <tr align='center'><td width='15px'><b><tt>#</tt></b></td><td width='300px'><b><tt>Entrada</tt></b></td><td width='400px'><b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align='left' valign='top'><td>1</td><td><tt>20 1 S<br>10000000000000000000<br>1</tt></td><td><tt>9999999999999999999</tt></td></tr>
+      <tr align='left' valign='top'><td>2</td><td><tt>30 30 A<br>900000000000000000000000000000<br>100000000000000000000000000000</tt></td><td><tt>1000000000000000000000000000000</tt></td></tr>
+      <tr align='left' valign='top'><td>3</td><td><tt>15 15 M<br>999999999999999<br>999999999999999</tt></td><td><tt>999999999999998000000000000001</tt></td></tr>
+      <tr align='left' valign='top'><td>4</td><td><tt>35 1 A<br>39430481390481390841908490138493892<br>0</tt></td><td><tt>39430481390481390841908490138493892</tt></td></tr>
+      <tr align='left' valign='top'><td>5</td><td><tt>17 17 S<br>94831049384093189<br>94831049384093189</tt></td><td><tt>0</tt></td></tr>
+    </table><br>
+</body></html>

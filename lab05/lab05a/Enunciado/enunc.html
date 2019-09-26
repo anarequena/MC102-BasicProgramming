@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 05a</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 05a - Necronomicon</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 22/04/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 3 <br> <br> <hr> <br>
+    
+    <p align="justify">
+      O Necronomicon (descrito na disserta&ccedil;&atilde;o ficcional "The History of Necronomicon", de <a href="http://pt.wikipedia.org/wiki/H._P._Lovecraft">H. P. Lovecraft</a>) &eacute; um suposto livro que antagoniza livros sagrados. Ele descreve as entidades, &agrave;s vezes referidos como "deuses", que vivem fora do nosso universo e um dia v&atilde;o novamente caminhar no nosso mundo e eliminar toda a humanidade no processo, alguns sem sequer perceber. O terror de Lovecraft se distinguiu pela fundamental premissa de que leis, interesses e emo&ccedil;&otilde;es humanas s&atilde;o insignificantes no vasto universo. S&atilde;o esquecidas coisas como bem e mal, amor e &oacute;dio e todos os atributos locais da "ra&ccedil;a tempor&aacute;ria" humana.
+    </p>
+
+    <p align="justify">
+      Este livro fict&iacute;cio teria sido escrito por Abdul Alhazred, um poeta louco, na cidade de Sana'a, I&ecirc;men. O t&iacute;tulo original do livro &eacute; <i>Al Azif</i>, que significa o som noturno que insetos fazem (acreditava-se que eram gritos de g&ecirc;nios).</a>
+    </p>
+
+    <p align="justify">
+      Uma primeira tradu&ccedil;&atilde;o foi feita para o grego, onde atribuiu-se o seu atual nome, Necronomicon. Desde ent&atilde;o, o livro possui uma hist&oacute;ria sinuosa. Todas as c&oacute;pias em &Aacute;rabe foram queimadas. Ele recebeu uma tradu&ccedil;&atilde;o para o latim e foi banido pelo papa Gregorio IX em 1232. O livro &eacute; rigidamente suprimido pelas autoridades da maioria dos pa&iacute;ses e por todas as organiza&ccedil;&otilde;es eclesi&aacute;sticas.
+    </p>
+    
+	<p align="justify">
+		Algumas pessoas escondem vers&otilde;es digitais codificadas, para que n&atilde;o sejam achadas facilmente. O c&oacute;digo &eacute; inserir algumas letras no meio dos nomes das entidades descritas no livro. Exemplo: o nome <i>cthulhu</i> pode ser codificado como <i>ocithualhu</i> ao inserir-se um caractere <tt>'o'</tt> no in&iacute;cio da palavra, um <tt>'i'</tt> ap&oacute;s o <tt>'c'</tt> e um <tt>'a'</tt> ap&oacute;s o primeiro <tt>'u'</tt>. A palavra <i>cthulhu</i> &eacute; uma subsequ&ecirc;ncia de <i>ocithualhu</i>.
+	</p>
+
+	<ul>
+		<li>Defini&ccedil;&atilde;o: <tt>A</tt> &eacute; uma subsequ&ecirc;ncia de <tt>B</tt>, se <tt>A</tt> pode ser obtida removendo alguns caracteres de <tt>B</tt>, sem alterar a ordem dos caracteres restantes.</li>
+	</ul>
+
+	<p align="justify">
+		Para isso, as autoridades contam com voc&ecirc; para criar um programa que quebre esse c&oacute;digo, para encontrar c&oacute;pias escondidas deste livro. A tarefa deste laborat&oacute;rio &eacute; escrever um programa que, dadas duas <i>strings</i>, diga se uma delas &eacute; uma subsequ&ecirc;ncia da outra.
+	</p>
+
+    <h3>Entrada</h3>
+
+    Seu programa deve receber um n&uacute;mero inteiro, <tt>n</tt> (<tt>n &ge; 1</tt>), onde <tt>n</tt> representa o n&uacute;mero de pares de palavras que precisam ser testados. Em seguida, ser&atilde;o fornecidas <tt>n</tt> linhas, cada uma composta por duas palavras, cada uma delas com no m&aacute;ximo 20 caracteres. A primeira corresponde ao nome de uma entidade e a segunda, possivelmente, uma codifica&ccedil;&atilde;o da primeira palavra dada.
+
+    <h3>Sa&iacute;da</h3>
+
+    Para cada par de palavras, o programa deve imprimir:
+    <ul>
+      <li><tt>Sim</tt>: se a primeira palavra &eacute; uma subsequ&ecirc;ncia da segunda.</li>
+      
+      <li><tt>Nao</tt>: caso contr&aacute;rio.</li>
+    </ul>
+
+    <h3>Exemplos</h3>
+    <table border="1" cellpadding="2" cellspacing="0">
+      <tbody><tr align="center"><td width="15px"><b><tt>#</tt></b></td><td width="350px"><b><tt>Entrada</tt></b></td><td width="150px"> <b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align="left" valign="top">
+		  <td>1</td>
+		  <td><tt> 2 <br />
+			cthulhu ocitahulahu <br />
+			necronomicon macroeconomy </tt></td>
+		  <td><tt>Sim <br />
+			Nao <br />
+		  </tt></td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>2</td>
+		  <td><tt> 5 <br />
+			azathoth azathatos <br />
+			necronomicon necroeconomicon <br />
+			yog-sothoth yoga-sotanhoth <br />
+			nyarlathotep nyancat <br />
+			glaaki gladkhaki </tt>
+		  </td>
+		  <td><tt>Nao <br />
+			Sim <br />
+			Sim <br />
+			Nao <br />
+			Sim <br />
+		  </tt></td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>3</td>
+		  <td><tt> 1 <br />
+			alhazred alhambrazred
+		  </tt></td>
+		  <td><tt>Sim
+		  </tt>
+		  </td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>4</td>
+		  <td><tt> 4 <br />
+			alazif allazziff <br />
+			abdul abadul <br />
+			dagon dragon <br />
+			robertolmstead-marsh robertolmstead-masch <br />
+		  </td>
+		  <td><tt>Sim <br />
+			Sim <br />
+			Sim <br />
+			Nao
+		  </tt>
+		  </td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>5</td>
+		  <td><tt> 4 <br />
+			nyarlathotep nyarlaws <br />
+			hastur haster <br />
+			azathoth ozathoth <br />
+			masch robertolmstead-masch <br />
+			</tt>
+		  </td>
+		  <td><tt>Nao <br />
+			Nao <br />
+			Nao <br />
+			Sim
+		  </tt>
+		  </td>
+	  </tr>
+
+    </tbody></table><br>
+
+</body></html>

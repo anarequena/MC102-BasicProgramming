@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 09b</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 09b - Peladeiros</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 18/05/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 6 <br> <br> <hr> <br>
+
+    <p align="justify">
+    Segundo a Wikipedia, a <a href="http://pt.wikipedia.org/wiki/Pelada_%28futebol%29">pelada</a> &eacute; o nome dado no Brasil a uma partida recreativa de futebol com regras livres, normalmente sem a preocupa&ccedil;&atilde;o com tamanhos de quadra/campo, condi&ccedil;&atilde;o dos cal&ccedil;ados e uniformes, marca&ccedil;&otilde;es b&aacute;sicas (pequena e grande &aacute;rea, c&iacute;rculo central), impedimentos, faltas, tempo de jogo (muitas vezes, as partidas s&atilde;o definidas pelo n&uacute;mero de gols), sendo tudo resolvido em consenso pelos jogadores.
+    </p>
+
+    <p align="justify">
+    Uma das principais decis&otilde;es tomadas por meio do consenso entre os jogadores &eacute; a forma&ccedil;&atilde;o dos times. Um processo bastante utilizado para formar times equilibrados &eacute; o seguinte. Dado um grupo de <tt>n</tt> jogadores, <tt>t</tt> deles (<tt>t < n</tt>) s&atilde;o designados para escolher os times. Em geral, tais jogadores s&atilde;o os melhores do grupo e s&atilde;o referidos como capit&atilde;es. Definidos os capit&atilde;es, cada um deles escolhe um jogador alternadamente at&eacute; que todos os <tt>n - t</tt> jogadores tenham sido escolhidos. Vale notar que cada capit&atilde;o escolhe, dentre os jogadores ainda n&atilde;o escolhidos, aquele que acredita ser o melhor. A ordem de escolha entre os <tt>t</tt> capit&atilde;es pode ser definida de v&aacute;rias formas, por exemplo na sorte.
+    </p>
+    
+    <p align="justify">
+    O site <a href="https://www.peladeiro.com.br/">Peladeiro</a>, respons&aacute;vel por organizar peladas por todo o Brasil, est&aacute; querendo implementar uma nova funcionalidade: a de forma&ccedil;&atilde;o de times. Essa funcionalidade visa mitigar a perda de tempo gerada pelo processo de forma&ccedil;&atilde;o de times nas peladas. Note que, muitas peladas ocorrem em quadras ou campos alugados por hora. Levando-se em conta que demora, em m&eacute;dia, 6 minutos para escolher os times, 10% do tempo &eacute; gasto neste processo.
+    </p>
+
+    <p align="justify">
+    Atualmente, o site j&aacute; conta um sistema de organiza&ccedil;&atilde;o que permite saber quais s&atilde;o os jogadores confirmados para a pelada. Al&eacute;m disso, o site tamb&eacute;m conta com um sistema de avalia&ccedil;&atilde;o de jogadores, isto &eacute;, cada jogador pode atribuir uma nota (de 0 a 10) para todos os jogadores (incluindo a si mesmo). Tendo isso em vista, gostaria-se que o site tivesse a funcionalidade de forma&ccedil;&atilde;o de times implementada conforme o processo descrito anteriormente. Mais especificamente, dado um grupo de <tt>n</tt> jogadores confirmados, os <tt>t</tt> capit&atilde;es s&atilde;o definidos com base nas <tt>t</tt> maiores notas m&eacute;dias atribu&iacute;das para cada jogador. Definidos os capit&atilde;es, inicia-se o processo de escolha alternada entre eles, de tal modo que o primeiro capit&atilde;o a escolher &eacute; o que possui maior nota m&eacute;dia, o segundo &eacute; o que possui a segunda maior nota m&eacute;dia e assim sucessivamente. Tal como dito anteriormente, cada capit&atilde;o sempre escolhe um jogador, dentre os jogadores ainda n&atilde;o escolhidos, que ele acredita ser o melhor. Nesse caso, um capit&atilde;o <tt>C</tt> considera um jogador <tt>A</tt> melhor que um jogador <tt>B</tt> se a nota atribu&iacute;da pelo capit&atilde;o <tt>C</tt> ao jogador <tt>A</tt> &eacute; maior do que a nota atribu&iacute;da pelo capit&atilde;o <tt>C</tt> ao jogador <tt>B</tt>. Casos de empate, tanto na defini&ccedil;&atilde;o dos capit&atilde;es quanto na escolha dos jogadores pelos capit&atilde;es, devem ser resolvidos em favor do jogador com o menor n&uacute;mero identificador, isto &eacute;, caso os jogadores <tt>A</tt> e <tt>B</tt> tenham notas iguais, considera-se que jogador <tt>A</tt> &eacute; melhor que o jogador <tt>B</tt> se <tt>A < B</tt>.
+    </p>
+
+    <p align="justify">
+    A fim de melhor compreender como a forma&ccedil;&atilde;o de times deve funcionar, suponha que os jogadores confirmados para uma pelada e suas respectivas notas sejam os ilustrados na tabela abaixo. Suponha tamb&eacute;m que devam ser formados 2 times de 3 jogadores, ou seja, a modalidade de pelada &eacute; o 3 contra 3 sem goleiro.  
+    </p> 
+
+<br><div align="center"><table style="font-family: monospace; text-align: left; font-size: 14px" border="1" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr align="center">
+      <td><b></td>
+      <td><b>Jogador 1</b></td>
+      <td><b>Jogador 2</b></td>
+      <td><b>Jogador 3</b></td>
+      <td><b>Jogador 4</b></td>
+      <td><b>Jogador 5</b></td>
+      <td><b>Jogador 6</b></td>
+    </tr>
+    <tr align="center">
+      <td><b>Jogador 1</b></td>
+      <td>10.0</td>
+      <td>9.5</td>
+      <td>8.7</td>
+      <td>9.9</td>
+      <td>9.8</td>
+      <td>8.8</td>
+    </tr>
+    <tr align="center">
+      <td><b>Jogador 2</b></td>
+      <td>9.7</td>
+      <td>10.0</td>
+      <td>8.8</td>
+      <td>8.4</td>
+      <td>8.3</td>
+      <td>9.0</td>
+    </tr>
+    <tr align="center">
+      <td><b>Jogador 3</b></td>
+      <td>9.5</td>
+      <td>9.7</td>
+      <td>10.0</td>
+      <td>8.7</td>
+      <td>8.9</td>
+      <td>9.9</td>
+    </tr>
+    <tr align="center">
+      <td><b>Jogador 4</b></td>
+      <td>9.9</td>
+      <td>9.1</td>
+      <td>9.4</td>
+      <td>10.0</td>
+      <td>8.3</td>
+      <td>8.1</td>
+    </tr>
+    <tr align="center">
+      <td><b>Jogador 5</b></td>
+      <td>8.4</td>
+      <td>9.4</td>
+      <td>9.0</td>
+      <td>9.9</td>
+      <td>10.0</td>
+      <td>8.3</td>
+    </tr>
+    <tr align="center">
+      <td><b>Jogador 6</b></td>
+      <td>8.9</td>
+      <td>9.1</td>
+      <td>8.6</td>
+      <td>9.5</td>
+      <td>8.3</td>
+      <td>10.0</td>
+    </tr>
+    <tr align="center">
+      <td><b>M&eacute;dia</b></td>
+      <td><b>9.400</b></td>
+      <td><b>9.467</b></td>
+      <td><b>9.083</b></td>
+      <td><b>9.400</b></td>
+      <td><b>8.933</b></td>
+      <td><b>9.017</b></td>
+    </tr>
+  </tbody>
+</table></div><br>
+ 
+    <p align="justify">
+    O primeiro passo do processo &eacute; a defini&ccedil;&atilde;o dos <tt>t = 2</tt> capit&atilde;es. Nesse caso, o jogador com a maior nota m&eacute;dia &eacute; o Jogador 2 e, empatados em segundo lugar, est&atilde;o os jogadores 1 e 4. Casos de empate devem ser resolvidos em favor do jogador com o menor n&uacute;mero identificador, que nesse caso &eacute; o Jogador 1. Portanto, os capit&atilde;es s&atilde;o os jogadores 1 e 2. O segundo passo &eacute; a escolha alternada entre os capit&atilde;es. O Jogador 2 inicia este passo, j&aacute; que possui a maior nota m&eacute;dia, e escolhe o Jogador 6, que &eacute; o jogador ainda n&atilde;o escolhido com maior nota (9.0) atribu&iacute;da pela Jogador 2. Em seguida, &eacute; a vez do Jogador 1 escolher um jogador e ele escolhe o Jogador 4. Este processo continua at&eacute; que todos os jogadores tenham sido escolhidos e os times tenham sido formados. A tabela abaixo mostra a forma&ccedil;&atilde;o final dos times nesse caso, sendo que a ordem dos n&uacute;meros de identifica&ccedil;&atilde;o de cada time respeita a ordem de escolha do capit&atilde;o daquele time.     
+    </p>
+
+<br><div align="center"><table style="font-family: monospace; text-align: left; font-size: 14px" border="1" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr align="center">
+      <td><b>Time</b></td>
+      <td width="40"><b>N&uacute;mero de Identifica&ccedil;&atilde;o dos Jogadores</b></td>
+    </tr>
+    <tr align="center">
+      <td>1</td>
+      <td>2 6 3</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>1 4 5</td>
+    </tr>
+  </tbody>
+</table></div><br>    
+
+    <p align="justify">
+    Voc&ecirc; acabou de ser contratado como estagi&aacute;rio na empresa mantenedora do site <a href="https://www.peladeiro.com.br/">Peladeiro</a> e sua primeira tarefa &eacute; implementar o programa respons&aacute;vel pela funcionalidade de forma&ccedil;&atilde;o de times.    
+    </p>
+
+    <h3>Entrada</h3>
+    A entrada &eacute; constitu&iacute;da de v&aacute;rias linhas, tal que:
+    <ul>
+      <li> A primeira linha cont&eacute;m dois n&uacute;meros inteiros <tt>n</tt> e <tt>t</tt> tais que <tt>n</tt> representa o n&uacute;mero de jogadores e <tt>t</tt> representa o n&uacute;mero de times, com <tt>4 &le; n &le; 50</tt> e <tt>2 &le; t &le; 10</tt>. Assuma que &eacute; sempre poss&iacute;vel formar <tt>t</tt> times com o mesmo n&uacute;mero de jogadores, ou seja, <tt>n = t &times; k</tt>, para algum inteiro <tt>k &ge; 2</tt>.</li>
+      <li> As pr&oacute;ximas <tt>n</tt> linhas definem uma matriz de n&uacute;meros reais <tt>M<sub>n,n</sub></tt> tal que uma casa <tt>m<sub>i,j</sub></tt> representa a nota dada pelo Jogador <tt>i</tt> para o Jogador <tt>j</tt>, com <tt>0.0 &le; m<sub>i,j</sub> &le; 10.0</tt>.</li>
+    </ul>
+
+    <h3>Sa&iacute;da</h3>
+    A sa&iacute;da &eacute; constitu&iacute;da de <tt>t</tt> linhas, de tal modo que a linha <tt>i</tt> deve conter a forma&ccedil;&atilde;o do time <tt>i</tt>. Mais especificamente, para cada time, seu programa deve imprimir uma linha no formato "<tt>Time i: X<sub>1</sub> X<sub>2</sub> ... X<sub>k</sub></tt>", sendo que <tt>X<sub>1</sub></tt> refere-se ao n&uacute;mero identificador do capit&atilde;o do time <tt>i</tt> e a sequ&ecirc;ncia <tt>X<sub>2</sub> ... X<sub>k</sub></tt>, <tt>k = n / t</tt>, refere-se aos n&uacute;meros identificadores dos demais jogadores desse time na ordem em que eles foram escolhidos pelo capit&atilde;o <tt>X<sub>1</sub></tt>. Considere que o Time 1 &eacute; o do primeiro capit&atilde;o a escolher, o Time 2 &eacute; o do segundo capit&atilde;o a escolher e assim por diante.
+    
+    <h3>Exemplos</h3>
+    <table cellpadding='2' cellspacing='0' border='1'>
+      <tr align='center'><td width='15px'><b><tt>#</tt></b></td><td width='400px'><b><tt>Entrada</tt></b></td><td width='200px'><b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align='left' valign='top'><td>1</td><td><tt>6 2<br>10.0 9.5 8.7 9.9 9.8 8.8<br>9.7 10.0 8.8 8.4 8.3 9.0<br>9.5 9.7 10.0 8.7 8.9 9.9<br>9.9 9.1 9.4 10.0 8.3 8.1<br>8.4 9.4 9.0 9.9 10.0 8.3<br>8.9 9.1 8.6 9.5 8.3 10.0</tt></td><td><tt>Time 1: 2 6 3<br>Time 2: 1 4 5</tt></td></tr>
+      <tr align='left' valign='top'><td>2</td><td><tt>6 3<br>10.0 9.5 8.7 9.9 9.8 8.8<br>9.7 10.0 8.8 8.4 8.3 9.0<br>9.5 9.7 10.0 8.7 8.9 9.9<br>9.9 9.1 9.4 10.0 8.3 8.1<br>8.4 9.4 9.0 9.9 10.0 8.3<br>8.9 9.1 8.6 9.5 8.3 10.0</tt></td><td><tt>Time 1: 2 6<br>Time 2: 1 5<br>Time 3: 4 3</tt></td></tr>
+      <tr align='left' valign='top'><td>3</td><td><tt>10 2<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0<br>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0</tt></td><td><tt>Time 1: 1 3 5 7 9<br>Time 2: 2 4 6 8 10</tt></td></tr>
+      <tr align='left' valign='top'><td>4</td><td><tt>12 3<br>4.4 2.5 1.3 1.6 2.3 3.4 3.6 4.2 2.4 2.7 1.4 3.5<br>2.2 1.0 1.4 1.8 3.4 1.9 4.8 0.0 0.6 3.5 3.5 4.7<br>1.9 3.7 0.8 0.0 3.1 2.7 0.5 4.2 0.6 4.9 2.9 4.6<br>3.1 2.0 4.2 3.4 0.9 1.3 4.3 3.0 2.4 0.1 2.9 1.7<br>3.2 1.7 1.2 0.8 0.3 4.1 2.2 1.4 1.9 3.3 1.8 0.1<br>0.4 4.1 0.2 1.3 4.0 2.8 1.9 0.6 4.8 4.8 2.7 0.8<br>1.4 2.1 1.1 2.1 1.7 3.2 4.3 0.5 4.8 1.9 3.9 4.4<br>4.8 2.4 4.7 3.0 1.7 4.1 2.3 4.2 2.0 0.9 2.6 1.0<br>2.8 3.0 1.8 1.5 4.9 1.0 3.1 4.3 2.9 4.9 3.8 2.5<br>4.2 3.6 1.6 4.3 2.8 3.3 4.7 3.6 3.9 4.6 4.1 1.1<br>0.6 1.0 3.0 3.3 3.2 2.4 0.8 4.9 1.8 4.9 4.8 0.8<br>1.0 1.2 2.1 2.6 3.6 1.9 4.2 3.0 4.1 4.6 3.1 0.2</tt></td><td><tt>Time 1: 10 4 1 2<br>Time 2: 11 8 5 3<br>Time 3: 7 9 12 6
+</tt></td></tr>
+      <tr align='left' valign='top'><td>5</td><td><tt>12 4<br>4.4 2.5 1.3 1.6 2.3 3.4 3.6 4.2 2.4 2.7 1.4 3.5<br>2.2 1.0 1.4 1.8 3.4 1.9 4.8 0.0 0.6 3.5 3.5 4.7<br>1.9 3.7 0.8 0.0 3.1 2.7 0.5 4.2 0.6 4.9 2.9 4.6<br>3.1 2.0 4.2 3.4 0.9 1.3 4.3 3.0 2.4 0.1 2.9 1.7<br>3.2 1.7 1.2 0.8 0.3 4.1 2.2 1.4 1.9 3.3 1.8 0.1<br>0.4 4.1 0.2 1.3 4.0 2.8 1.9 0.6 4.8 4.8 2.7 0.8<br>1.4 2.1 1.1 2.1 1.7 3.2 4.3 0.5 4.8 1.9 3.9 4.4<br>4.8 2.4 4.7 3.0 1.7 4.1 2.3 4.2 2.0 0.9 2.6 1.0<br>2.8 3.0 1.8 1.5 4.9 1.0 3.1 4.3 2.9 4.9 3.8 2.5<br>4.2 3.6 1.6 4.3 2.8 3.3 4.7 3.6 3.9 4.6 4.1 1.1<br>0.6 1.0 3.0 3.3 3.2 2.4 0.8 4.9 1.8 4.9 4.8 0.8<br>1.0 1.2 2.1 2.6 3.6 1.9 4.2 3.0 4.1 4.6 3.1 0.2</tt></td><td><tt>Time 1: 10 4 2<br>Time 2: 11 5 3<br>Time 3: 7 9 12<br>Time 4: 8 1 6</tt></td></tr> 
+    </table><br>
+</body></html>

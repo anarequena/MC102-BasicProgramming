@@ -1,0 +1,205 @@
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 11a</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 11a - Transfer&ecirc;ncias Banc&aacute;rias</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 01/06/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 7 <br> <br> <hr> <br>
+    
+    <p align="justify">
+      Dentre as opera&ccedil;&otilde;es monet&aacute;rias que os bancos disponibilizam para seus clientes est&aacute; a transfer&ecirc;ncia entre duas contas diferentes. Ela reduz a necessidade dos clientes carregarem dinheiro em esp&eacute;cie e cheques.
+    </p>
+
+    <p align="justify">
+      Diariamente, os bancos processam uma grande quantidade de transfer&ecirc;ncias. Transfer&ecirc;ncias banc&aacute;rias precisam ser validadas antes de serem de fato efetuadas. A valida&ccedil;&atilde;o de uma transfer&ecirc;ncia inclui verificar se ambas as contas existem e se a conta de origem possui saldo suficiente para a transfer&ecirc;ncia.
+    </p>
+    
+    <p align="justify">
+      O objetivo deste laborat&oacute;rio &eacute;, dada uma lista de contas banc&aacute;rias e uma s&eacute;rie de transfer&ecirc;ncias, imprimir os estados finais das contas banc&aacute;rias, incluindo o saldo atualizado, considerando apenas as trasfer&ecirc;ncias v&aacute;lidas.
+    </p>
+    
+    <table align="center" border="1" bordercolor="#000000" cellpadding="2" cellspacing="0" width="650px">
+      <thead><tr align="center"><th colspan="2"><p>Exemplo</p></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <p>Dados das <br>contas</p>
+          </td>
+          <td align="left">
+            Conta: 148690 <br>
+            Ag&ecirc;ncia: 24473 <br>
+            Nome: Jo&atilde;o <br>
+            Sobrenome: Silva <br>
+            Saldo: 1500.00 <br>
+            <br>
+            Conta: 654321 <br>
+            Ag&ecirc;ncia: 12345 <br>
+            Nome: Maria <br>
+            Sobrenome: Costa <br>
+            Saldo: 200.00 <br>
+            <br>
+            Conta: 173561 <br>
+            Ag&ecirc;ncia: 13408 <br>
+            Nome: Pedro <br>
+            Sobrenome: Moura <br>
+            Saldo: 54.10 <br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Transfer&ecirc;ncias</p>
+          </td>
+          <td align="left">
+            Origem: 173561@13408. Valor: 100.00. Destino: 654321@12345. <br>
+            Origem: 140660@24473. Valor: 690.00. Destino: 173561@13408. <br>
+            Origem: 148690@24473. Valor: 690.00. Destino: 173561@13408. <br>
+            Origem: 654321@12345. Valor: 27.43. Destino: 173561@13408. <br>
+            Origem: 654321@12345. Valor: 101.80. Destino: 148690@24473. <br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Sa&iacute;da</p>
+          </td>
+          <td align="left">
+            148690@24473 Joao Silva 911.80 <br>
+            654321@12345 Maria Costa 70.77 <br>
+            173561@13408 Pedro Moura 771.53 <br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p align="justify">
+      A primeira transfer&ecirc;ncia &eacute; inv&aacute;lida, pois o saldo da conta &eacute; menor que o valor da transfer&ecirc;ncia. A segunda transfer&ecirc;ncia tamb&eacute;m &eacute; inv&aacute;lida, pois a conta de origem n&atilde;o existe.
+    </p>
+
+    <h3>Entrada</h3>
+
+    Seu programa deve receber uma linha com dois n&uacute;meros inteiros positivos, seguidos de uma quantidade vari&aacute;vel de linhas, tais que:
+    <ul>
+      <li>Os dois primeiros n&uacute;meros correspondem ao n&uacute;mero de clientes a serem lidos (<tt>c</tt>) e o n&uacute;mero de transfer&ecirc;ncias feitas no dia (<tt>t</tt>), tais que <tt>1 &le; c &le; 10</tt> e <tt> t &ge; 1</tt>;</li>
+      
+      <li>Cada uma das pr&oacute;ximas <tt>c</tt> linhas cont&ecirc;m os dados de uma conta banc&aacute;ria, apresentados no seguinte formato: <br><tt>[n&uacute;mero da conta]@[n&uacute;mero da ag&ecirc;ncia] [nome] [sobrenome] [saldo]</tt> <br>Os n&uacute;meros de conta e de ag&ecirc;ncia s&atilde;o inteiros e possuem no m&aacute;ximo 6 d&iacute;gitos e nunca come&ccedil;am com zero. Os nomes e sobrenomes possuem no m&aacute;ximo 20 caracteres. O saldo &eacute; um n&uacute;mero n&atilde;o negativo.</li>
+      
+      <li>As outras <tt>t</tt> linhas cont&ecirc;m as transa&ccedil;&otilde;es, apresentadas no seguinte formato:<br><tt>[n&uacute;mero da conta de origem]@[n&uacute;mero da ag&ecirc;ncia de origem] >> [valor a ser transferido] >> [n&uacute;mero da conta de destino]@[n&uacute;mero da ag&ecirc;ncia de destino]</tt></li>
+    </ul>  
+
+    <h3>Sa&iacute;da</h3>
+
+    Seu programa deve imprimir <tt>c</tt> linhas na sa&iacute;da, cada uma correspondente a uma das contas, na mesma ordem e formato que elas foram apresentadas na entrada, com os saldos atualizados, considerando apenas as transfer&ecirc;ncias v&aacute;lidas.
+
+    <h3>Exemplos</h3>
+
+    <table border="1" cellpadding="2" cellspacing="0">
+      <tbody>
+        <tr align="center">
+          <td width="15px"><b><tt>#</tt></b></td>
+          <td width="325px"><b><tt>Entrada</tt></b></td>
+          <td width="275px"> <b><tt>Sa&iacute;da</tt></b></td>
+        </tr>
+        
+        <tr align="left" valign="top">
+          <td>1</td>
+          <td><tt>3 5 <br>
+              148690@24473 Joao Silva 1500.00 <br>
+              654321@12345 Maria Costa 200.00 <br>
+              173561@13408 Pedro Moura 54.10 <br>
+              173561@13408 >> 100.00 >> 654321@12345 <br>
+              140660@24473 >> 690.00 >> 173561@13408 <br>
+              148690@24473 >> 690.00 >> 173561@13408 <br>
+              654321@12345 >> 27.43 >> 173561@13408 <br>
+              654321@12345 >> 101.80 >> 148690@24473 <br>
+          </tt></td>
+          <td><tt>
+              148690@24473 Joao Silva 911.80 <br>
+              654321@12345 Maria Costa 70.77 <br>
+              173561@13408 Pedro Moura 771.53 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>2</td>
+          <td><tt>2 3 <br>
+              123@23 Paula Santos 23649.66 <br>
+              587@33 Carla Oliveira 100.00 <br>
+              123@23 >> 456.21 >> 11@11 <br>
+              123@23 >> 456.21 >> 587@33 <br>
+              321@43 >> 0.21 >> 11@11 <br>
+          </tt></td>
+          <td><tt>
+            123@23 Paula Santos 23193.45 <br>
+            587@33 Carla Oliveira 556.21 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>3</td>
+          <td><tt>5 5 <br>
+              6800@908 Ana Oliveira 3617.11 <br>
+              6663@821 Jose Rodrigues 187.83 <br>
+              5089@592 Paula Santos 1520.18 <br>
+              8491@677 Carla Costa 9620.39 <br>
+              4627@520 Thiago Moura 29.71 <br>
+              5089@592 >> 864.11 >> 4627@520 <br>
+              4627@520 >> 220.80 >> 6663@821 <br>
+              1100@644 >> 1000000 >> 6800@908 <br>
+              6663@821 >> 228.55 >> 4321@678 <br>
+              6663@821 >> 1000.00 >> 1234@432 <br>
+          </tt></td>
+          <td><tt>
+              6800@908 Ana Oliveira 3617.11 <br>
+              6663@821 Jose Rodrigues 408.63 <br>
+              5089@592 Paula Santos 656.07 <br>
+              8491@677 Carla Costa 9620.39 <br>
+              4627@520 Thiago Moura 673.02 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>4</td>
+          <td><tt>3 4 <br>
+              9665@197 Alice Mendes 12.70 <br>
+              1778@407 Joao Dias 20.56 <br>
+              3913@812 Guilherme Melo 26234.06 <br>
+              8364@812 >> 23.32 >> 3424@537 <br>
+              3913@812 >> 1612.74 >> 9665@197 <br>
+              3913@812 >> 363.45 >> 3946@416 <br>
+              3913@812 >> 630.38 >> 1778@407 <br>
+          </tt></td>
+          <td><tt>
+              9665@197 Alice Mendes 1625.44 <br>
+              1778@407 Joao Dias 650.94 <br>
+              3913@812 Guilherme Melo 23990.94 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>5</td>
+          <td><tt>2 1 <br>
+              3977@725 Helena Barbosa 1652.01 <br>
+              1210@606 Felipe Monteiro 578.03 <br>
+              3977@725 >> 3933.68 >> 1210@606 <br>
+          </tt></td>
+          <td><tt>
+              3977@725 Helena Barbosa 1652.01 <br>
+              1210@606 Felipe Monteiro 578.03 <br>
+          </tt></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

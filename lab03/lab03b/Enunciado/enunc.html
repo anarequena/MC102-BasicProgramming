@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 03b</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 03b - O Enigma dos Guardi&otilde;es Qu&acirc;nticos</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 06/04/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 2 <br> <br> <hr> <br>
+
+    <p align="justify">
+      No Antigo Egito, os fara&oacute;s constru&iacute;am pir&acirc;mides para abrigar seus t&uacute;mulos e seus tesouros. A fim de evitar que estes fossem roubados, era comum que eles fossem protegidos por algum sistema de seguran&ccedil;a, geralmente envolvendo a resolu&ccedil;&atilde;o de algum enigma. A primeira gera&ccedil;&atilde;o de sistemas de seguran&ccedil;a implantados baseou-se no Enigma dos Guardi&otilde;es e das Portas. Neste enigma, uma pessoa fica diante de duas portas: uma que leva &agrave; sala do tesouro e a outra, &agrave; morte. Cada porta &eacute; protegida por um guardi&atilde;o, que s&atilde;o seres eternos muito fi&eacute;is ao fara&oacute;. Um deles s&oacute; diz a verdade e o outro s&oacute; diz mentiras. A pessoa tem que passar por uma das portas e tem direito a fazer apenas uma pergunta para um dos guardi&otilde;es, que pode responder apenas "sim" ou "n&atilde;o".
+    </p>
+
+    <p align="justify">
+      Os sistemas de seguran&ccedil;a baseados no Enigma dos Guardi&otilde;es e das Portas foram rapidamente abandonados. Isso porque bastava duas pessoas combinarem de resolver o enigma juntas. Obviamente, uma delas poderia morrer, por&eacute;m a que sobrevivesse se compremeteria a dividir o tesouro com a fam&iacute;lia da que morresse. Sendo assim, a segunda gera&ccedil;&atilde;o de sistemas de seguran&ccedil;a baseou-se em uma varia&ccedil;&atilde;o do Enigma dos Guardi&otilde;es e das Portas chamado de Enigma dos Guardi&otilde;es Qu&acirc;nticos. Nesta varia&ccedil;&atilde;o, uma pessoa fica diante de <tt>N</tt> portas. Cada porta &eacute; protegida por um guardi&atilde;o, que pode ser classificado como mentiroso ou sincero. Ao inv&eacute;s de cada guardi&atilde;o responder "sim" ou "n&atilde;o" a uma pergunta, eles apenas fornecem um intervalo <tt>[a, b]</tt> que inclui o n&uacute;mero de guardi&otilde;es sinceros entre eles. Com base nas informa&ccedil;&otilde;es de cada guardi&atilde;o, &eacute; poss&iacute;vel montar diferentes cen&aacute;rios consistentes com essas informa&ccedil;&otilde;es. 
+    </p>
+
+    <p align="justify">
+      Por exemplo, suponha que existam 4 guardi&otilde;es: G1, G2, G3 e G4. Al&eacute;m disso, suponha que os intervalos fornecidos por cada guardi&atilde;o s&atilde;o:
+      <ul>
+        <li>G1: [0,1];</li>
+        <li>G2: [1,3];</li>
+        <li>G3: [2,3];</li>
+        <li>G4: [3,3].</li>
+      </ul>
+
+      Note que os intervalos s&atilde;o fechados (ou inclusivos). Sendo assim, &eacute; poss&iacute;vel montar os seguintes cen&aacute;rios consistentes:
+
+      <ul>
+        <li>Cen&aacute;rio 1: G2 e G3 s&atilde;o sinceros, G1 e G4 s&atilde;o mentirosos;</li>
+        <li>Cen&aacute;rio 2: G2, G3 e G4 s&atilde;o sinceros e G1 &eacute; mentiroso.</li>
+      </ul>  
+    </p>
+
+    <p align="justify">
+      Deste modo, o nome do enigma decorre do fato de ser poss&iacute;vel existirem cen&aacute;rios (ou estados) consistentes "superpostos". A porta que leva ao tesouro corresponde ao primeiro guardi&atilde;o sincero relativo ao cen&aacute;rio consistente com o maior n&uacute;mero de guardi&otilde;es sinceros. No caso do exemplo anterior, o cen&aacute;rio consistente com o maior n&uacute;mero de guardi&otilde;es sinceros &eacute; o Cen&aacute;rio 2, portanto, a porta que leva ao tesouro &eacute; a porta correspondente ao guardi&atilde;o G2 (primeiro guardi&atilde;o, em ordem n&uacute;merica, daquele cen&aacute;rio).
+    </p>
+
+    <p align="justify">
+      Sempre existe pelo menos um cen&aacute;rio consistente com pelo menos um guardi&atilde;o sincero, caso contr&aacute;rio, n&atilde;o haveria como determinar a porta que leva ao tesouro.
+    </p>
+
+    <p align="justify">
+      Indiana Jones est&aacute; em busca dos tesouros perdidos dos fara&oacute;s. Ele sabe como recuperar os tesouros protegidos pela primeira gera&ccedil;&atilde;o de sistemas de seguran&ccedil;a, por&eacute;m est&aacute; com dificuldades em recuperar os tesouros protegidos pela segunda gera&ccedil;&atilde;o de sistemas de seguran&ccedil;a. Por essa raz&atilde;o, ele solicitou a voc&ecirc; um programa para resolver o Enigma dos Guardi&otilde;es Qu&acirc;nticos.
+    </p>
+
+    <h3>Entrada</h3>
+
+    A entrada &eacute; constitu&iacute;da de v&aacute;rias linhas:
+    <ul>
+      <li>A primeira linha cont&eacute;m um n&uacute;mero inteiro <tt>N</tt> referente ao n&uacute;mero de guardi&otilde;es (assuma que <tt>2 &leq; N &leq; 100</tt>);</li>
+      <li>As pr&oacute;ximas <tt>N</tt> linhas correspondem aos intervalos fornecidos pelos guardi&otilde;es de tal modo que a segunda linha corresponde ao intervalo fornecido pelo Guardi&atilde;o 1, a terceira linha corresponde ao intervalo fornecido pelo Guardi&atilde;o 2 e assim sucessivamente. Mais especificamente, cada uma dessas linhas cont&eacute;m dois n&uacute;meros inteiros <tt>a</tt> e <tt>b</tt>, tais que <tt>0 &leq; a &leq; b &leq; N</tt>.</li>
+    </ul>  
+
+    <h3>Sa&iacute;da</h3>
+    Seu programa deve imprimir a resposta em duas linhas: 
+    <ul>
+      <li>A primeira linha deve seguir o formato: "<tt>Numero de guardioes sinceros = X</tt>", onde <tt>X</tt> &eacute; igual &agrave; quantidade de guardi&otilde;es sinceros do cen&aacute;rio consistente que possui o maior n&uacute;mero de guardi&otilde;es sinceros (<tt>1 &leq; X &leq; N</tt>);</li>
+      <li>A segunda linha deve seguir o formato: "<tt>Guardiao Y</tt>", onde <tt>Y</tt> &eacute; o n&uacute;mero do primeiro guardi&atilde;o sincero relativo ao cen&aacute;rio consistente que possui o maior n&uacute;mero de guardi&otilde;es sinceros. O primeiro guardi&atilde;o sincero dentre os guardi&otilde;es sinceros &eacute; aquele que possui o menor n&uacute;mero de identifica&ccedil;&atilde;o.</li>
+    </ul>
+
+    <h3>Exemplos</h3>
+    <table cellpadding='2' cellspacing='0' border='1'>
+      <tr align='center'><td width='15px'><b><tt>#</tt></b></td><td width='150px'><b><tt>Entrada</tt></b></td><td width='250px'><b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align='left' valign='top'><td>1</td><td><tt>4<br>0 1<br>1 3<br>2 3<br>3 3</tt></td><td><tt>Numero de guardioes sinceros = 3<br>Guardiao 2</tt></td></tr>
+      <tr align='left' valign='top'><td>2</td><td><tt>2<br>1 1<br>0 0</tt></td><td><tt>Numero de guardioes sinceros = 1<br>Guardiao 1</tt></td></tr>
+      <tr align='left' valign='top'><td>3</td><td><tt>3<br>1 3<br>2 3<br>3 3</tt></td><td><tt>Numero de guardioes sinceros = 3<br>Guardiao 1</tt></td></tr>
+      <tr align='left' valign='top'><td>4</td><td><tt>5<br>2 2<br>3 3<br>4 4<br>5 5<br>1 1</tt></td><td><tt>Numero de guardioes sinceros = 1<br>Guardiao 5</tt></td></tr>
+      <tr align='left' valign='top'><td>5</td><td><tt>10<br>6 10<br>0 4<br>9 10<br>2 7<br>1 6<br>4 5<br>7 8<br>3 10<br>9 9<br>5 5</tt></td><td><tt>Numero de guardioes sinceros = 5<br>Guardiao 4</tt></td></tr>
+    </table><br>
+</body></html>

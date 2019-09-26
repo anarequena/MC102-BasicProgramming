@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 10b</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 10b - O Baile de Inverno</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 25/05/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 7 <br> <br> <hr> <br>
+
+    <p align="justify">
+    Hogwarts foi escolhida como sede da maior competi&ccedil;&atilde;o entre bruxos do mundo, o Torneio Tribruxo, que envolver&aacute; as tr&ecirc;s escolas de magia mais famosas da Europa: Hogwarts, Beauxbatons e Durmstrang. Este torneio funciona da seguinte maneira. Inicialmente, um representante (chamado campe&atilde;o) de cada escola &eacute; selecionado atrav&eacute;s do C&aacute;lice de Fogo. Depois, os campe&otilde;es realizam, ao longo do ano, tr&ecirc;s tarefas diferentes. Sagra-se vencedor do Torneio Tribruxo o campe&atilde;o que acumular mais pontos nas tr&ecirc;s tarefas.
+    </p>
+
+    <p align="justify">
+    Parte tradicional do Torneio Tribruxo, o Baile de Inverno acontecer&aacute; no Grande Sal&atilde;o, no dia de Natal. A professora Minerva McGonagall foi designada como respons&aacute;vel pelas aulas de dan&ccedil;a dos alunos de Hogwarts, a fim de prepar&aacute;-los para o Baile de Inverno. Ap&oacute;s o t&eacute;rmino das aulas, muitos pares foram formados voluntariamente, por&eacute;m alguns alunos permaneceram sem par. Por essa raz&atilde;o, a professora Minerva decidiu formar duplas por conta pr&oacute;pria. 
+    </p>
+
+    <p align="justify">
+    Ela acredita que o melhor jeito de formar duplas &eacute; unir um homem e uma mulher que tenham, no m&aacute;ximo, uma pequena diferen&ccedil;a de habilidade de dan&ccedil;a. Dado que a professora Minerva conhece a habilidade de dan&ccedil;a (representada por um n&uacute;mero inteiro entre 1 e 100, tal que o n&uacute;mero 1 refere-se a um p&eacute;ssimo dan&ccedil;arino e o n&uacute;mero 100 refere-se a um dan&ccedil;arino perfeito) de cada um de seus alunos, ela ir&aacute; tentar formar o maior n&uacute;mero de duplas tais que, para cada dupla, a diferen&ccedil;a de habilidade de dan&ccedil;a entre o homem e a mulher &eacute; menor ou igual a um n&uacute;mero inteiro <tt>D</tt>. As duplas formadas desse modo s&atilde;o chamadas de "duplas equilibradas". 
+    </p>
+
+    <p align="justify">
+      Para entender melhor como a professora Minerva forma as duplas, suponha que os alunos sem par e suas respectivas habilidades de dan&ccedil;a sejam os ilustrados na tabela abaixo. Al&eacute;m disso, suponha que <tt>D = 2</tt>.
+    </p>
+    
+    <div align="center" style="vertical-align: top;">
+      <table style="display: inline-block;" cellpadding='0' cellspacing='0' border='1'>
+        <tr align='center'><td width='200px'><b>Aluno</b></td><td width='100px'><b>Habilidade</b></td></tr>
+        <tr align='center' valign='top'><td>Harry Potter</td><td>41</td></tr>
+        <tr align='center' valign='top'><td>Ron Weasley</td><td>27</td></tr>
+        <tr align='center' valign='top'><td>Cedric Diggory</td><td>60</td></tr>
+        <tr align='center' valign='top'><td>Neville Longbottom</td><td>57</td></tr>
+        <tr align='center' valign='top'><td>Fred Weasley</td><td>74</td></tr>
+        <tr align='center' valign='top'><td>Draco Malfoy</td><td>50</td></tr>
+        <tr align='center' valign='top'><td>Seamus Finnigan</td><td>31</td></tr>
+        <tr align='center' valign='top'><td>Roger Davies</td><td>53</td></tr>
+        <tr align='center' valign='top'><td>Ernest Macmillan</td><td>58</td></tr>
+        <tr align='center' valign='top'><td>Gregory Goyle</td><td>52</td></tr>
+      </table>
+      
+      <table cellpadding='0' cellspacing='0' border='1' style="display: inline-block; vertical-align: top; margin-left: 5px;">
+        <tr align='center'><td width='200px'><b>Aluna</b></td><td width='100px'><b>Habilidade</b></td></tr>
+        <tr align='center' valign='top'><td>Hermione Granger</td><td>63</td></tr>
+        <tr align='center' valign='top'><td>Ginny Weasley</td><td>58</td></tr>
+        <tr align='center' valign='top'><td>Cho Chang</td><td>47</td></tr>
+        <tr align='center' valign='top'><td>Angelina Johnson</td><td>72</td></tr>
+        <tr align='center' valign='top'><td>Padma Patil</td><td>27</td></tr>
+        <tr align='center' valign='top'><td>Parvati Patil</td><td>43</td></tr>
+        <tr align='center' valign='top'><td>Lavender Brown</td><td>84</td></tr>
+        <tr align='center' valign='top'><td>Pansy Parkinson</td><td>79</td></tr>
+      </table>
+    </div>
+    
+    <p align="justify">
+      Ent&atilde;o, o maior n&uacute;mero de duplas equilibradas que podem ser formadas &eacute; 4. Por exemplo, as seguintes duplas poderiam ser formadas: Harry com Parvati, Ron com Padma, Neville com Ginny e Fred com Angelina.
+    </p>
+
+    <p align="justify">
+    A tarefa deste laborat&oacute;rio &eacute; desenvolver um programa que, dadas as habilidades de dan&ccedil;a dos alunos sem par e a diferen&ccedil;a m&aacute;xima de habilidade permitida entre os integrantes de uma dupla, determinar o maior n&uacute;mero de duplas equilibradas que podem ser formadas.
+    </p>
+
+    <h3>Entrada</h3>
+
+    <ul>
+      <li>A primeira linha da entrada cont&eacute;m tr&ecirc;s n&uacute;mero inteiros <tt>M</tt>, <tt>N</tt> e <tt>D</tt>, tais que:
+        <ul>
+          <li><tt>M</tt> representa o n&uacute;mero de homens, <tt>1 &leq; M &leq; 1000</tt>;</li>
+          <li><tt>N</tt> representa o n&uacute;mero de mulheres, <tt>1 &leq; N &leq; 1000</tt>;</li>
+          <li><tt>D</tt> representa a diferen&ccedil;a m&aacute;xima de habilidade permitida entre os integrantes de uma dupla, <tt>0 &leq; D &leq; 99</tt>.</li>
+          </ul>
+      </li>
+      <li>A segunda linha cont&eacute;m <tt>M</tt> n&uacute;meros inteiros <tt>X<sub>1</sub> X<sub>2</sub> ... X<sub>M</sub></tt> (<tt>1 &leq; X<sub>i</sub> &leq; 100</tt>) separados por espa&ccedil;os, que representam as habilidades dos homens.</li>
+      <li>A terceira linha cont&eacute;m <tt>N</tt> n&uacute;meros inteiros <tt>Y<sub>1</sub> Y<sub>2</sub> ... Y<sub>N</sub></tt> (<tt>1 &leq; Y<sub>i</sub> &leq; 100</tt>) separados por espa&ccedil;os, que representam as habilidades das mulheres.</li>
+    </ul>
+
+    <h3>Sa&iacute;da</h3>
+    <ul>
+      <li>Seu programa deve imprimir uma linha no formato "<tt>Numero maximo de duplas equilibradas = X</tt>", em que <tt>X</tt> &eacute; o maior n&uacute;mero de duplas equilibradas que podem ser formadas.</li>
+    </ul>
+    <h3>Exemplos</h3>
+    <table cellpadding='2' cellspacing='0' border='1'>
+      <tr align='center'><td width='15px'><b><tt>#</tt></b></td><td width='350px'><b><tt>Entrada</tt></b></td><td width='350px'><b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align='left' valign='top'><td>1</td><td>
+        <tt>10 8 2</tt><br>
+        <tt>41 27 60 57 74 50 31 53 58 52</tt><br>
+        <tt>63 58 47 72 27 43 84 79</tt></td><td><tt>Numero maximo de duplas equilibradas = 4</tt></td></tr>
+      <tr align='left' valign='top'><td>2</td><td>
+        <tt>10 12 5</tt><br>
+        <tt>49 75 42 56 60 68 56 61 74 53</tt><br>
+        <tt>78 69 73 64 50 74 39 80 79 69 62 58</tt></td><td><tt>Numero maximo de duplas equilibradas = 8</tt></td></tr>
+      <tr align='left' valign='top'><td>3</td><td>
+        <tt>15 15 15</tt><br>
+        <tt>29 97 98 55 40 5 57 66 6 42 23 34 84 4 85</tt><br>
+        <tt>8 78 69 76 91 10 32 86 26 9 96 49 53 80 19</tt></td><td><tt>Numero maximo de duplas equilibradas = 14</tt></td></tr>
+      <tr align='left' valign='top'><td>4</td><td>
+        <tt>8 7 4</tt><br>
+        <tt>5 15 25 35 45 55 65 75</tt><br>
+        <tt>10 20 30 40 50 60 70</tt></td><td><tt>Numero maximo de duplas equilibradas = 0</tt></td></tr>
+      <tr align='left' valign='top'><td>5</td><td>
+        <tt>12 14 0</tt><br>
+        <tt>46 41 51 45 36 48 49 51 51 39 59 57</tt><br>
+        <tt>52 39 55 50 54 30 51 33 30 52 55 31 30 43</tt></td><td><tt>Numero maximo de duplas equilibradas = 2</tt></td></tr>
+    </table><br>
+</body></html>

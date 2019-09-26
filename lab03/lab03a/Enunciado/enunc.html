@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <title>Laborat&oacute;rio 03a</title>
+    <style>
+		td {
+			padding-left: 20px;
+		}
+    </style>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 03a - Admir&aacute;vel Mundo Novo</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 06/04/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 2 <br> <br> <hr> <br>
+    
+    <p align="justify">
+      No livro <i><a href="http://pt.wikipedia.org/wiki/Admir%C3%A1vel_Mundo_Novo" target="_blank">Admir&aacute;vel Mundo Novo</a></i> (<i>Brave New World</i>),
+ de Aldous Huxley, &eacute; descrita uma nova organiza&ccedil;&atilde;o mundial dist&oacute;pica, 
+onde as pessoas s&atilde;o condicionadas a terem comportamentos padronizados e 
+cada m&iacute;nimo aspecto de suas vidas &eacute; controlado.
+    </p>
+
+    <p align="justify">
+      Neste cen&aacute;rio, n&atilde;o existem nascimentos naturais, nem m&atilde;es ou pais.
+ As pessoas nascem em incubadoras. Com o objetivo de manter todos 
+felizes, e considerando que pessoas inteligentes ficam infelizes 
+realizando trabalhos bra&ccedil;ais ou pouco intelectuais, a sociedade &eacute; 
+dividida em <a href="http://pt.wikipedia.org/wiki/Admir%C3%A1vel_Mundo_Novo#Castas" target="_blank">castas</a>:
+    </p>
+
+	<ul>
+		<li>Alfa;</li>
+		<li>Beta;</li>
+		<li>Gama;</li>
+		<li>Delta;</li>
+		<li>&Eacute;psilon.</li>
+	</ul>
+
+    <p align="justify">
+      A casta Alfa &eacute; superior e formada por indiv&iacute;duos selecionados, 
+para ter porte f&iacute;sico grande e 100% da capacidade cerebral de uma pessoa
+ comum. A partir da casta Beta, componentes qu&iacute;micos s&atilde;o injetados nas 
+incubadoras para que os indiv&iacute;duos sejam fisicamente marcados como 
+inferiores e possuam menos capacidade intelectuais. O processo &eacute; 
+gradativo, de forma que um Beta &eacute; quase t&atilde;o inteligente quanto um Alfa, 
+mas &eacute; um pouco mais baixo e &eacute; marcado como inferior com doen&ccedil;as de pele.
+ Indiv&iacute;duos &Eacute;psilon s&atilde;o quase an&otilde;es e, literalmente, semi-ignorantes.
+    </p>
+    
+    <p align="justify">
+		Para manter a ordem mundial e a divis&atilde;o do trabalho, uma certa 
+propor&ccedil;&atilde;o entre cada classe deve ser mantida. Para tanto, s&atilde;o 
+armazenadas as informa&ccedil;&otilde;es de "nascimento" de lotes de crian&ccedil;as e, a 
+partir disso, &eacute; calculada a porcentagem de natividade de cada casta.
+    </p>
+
+
+    <p>A tarefa deste laborat&oacute;rio ser&aacute; calcular a quantidade bruta e 
+porcentual de nascimentos em cada casta. O programa deve ser mais 
+gen&eacute;rico, de forma que funcione para outros sistemas, com diferentes 
+quantidades de castas.</p>
+
+    <h3>Entrada</h3>
+
+    Seu programa deve receber dois n&uacute;meros inteiros, <tt>n</tt> e <tt>c</tt> (<tt>n &#8805; 1, 1 &#8804; c &#8804; 9</tt>), onde <tt>n</tt> representa o n&uacute;mero de lotes de crian&ccedil;as e <tt>c</tt>, o n&uacute;mero de castas. Em seguida, ser&atilde;o fornecidas <tt>n</tt> linhas, cada uma composta por uma sequ&ecirc;ncia de d&iacute;gitos, cada um deles entre 1 e <tt>c</tt>, correspondentes aos nascimentos de indiv&iacute;duos de cada casta naquele lote.
+
+    <h3>Sa&iacute;da</h3>
+
+    Seu programa deve imprimir a sa&iacute;da como definido a seguir: 
+    <ul>
+      <li>A primeira linha deve seguir o formato: "<tt>Total: X individuos</tt>", onde <tt>X</tt> &eacute; a quantidade total de pessoas que nasceram nos lotes fornecidos.</li>
+      
+      <li>As pr&oacute;ximas <tt>c</tt> linhas devem seguir o formato: "<tt>Total da casta Y: qtd</tt>", onde <tt>Y</tt> corresponde a cada uma das <tt>c</tt> castas, em ordem, e <tt>qtd</tt> corresponde &agrave; quantidade de indiv&iacute;duos nascidos na respectiva casta.</li>
+      
+      <li>De forma an&aacute;loga, as &uacute;ltimas <tt>c</tt> linhas devem seguir o formato: "<tt>Percentual na casta Y: perc</tt>", em que <tt>Y</tt> corresponde a cada uma das <tt>c</tt> castas, em ordem, e <tt>perc</tt> corresponde &agrave; porcentagem de indiv&iacute;duos nascidos na respectiva casta, com duas casas decimais de precis&atilde;o.</li>
+    </ul>
+
+    <h3>Exemplos</h3>
+    <table border="1" cellpadding="2" cellspacing="0">
+      <tbody><tr align="center"><td width="15px"><b><tt>#</tt></b></td><td width="220px"><b><tt>Entrada</tt></b></td><td width="250px"> <b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align="left" valign="top">
+		  <td>1</td>
+		  <td><tt> 2 5 <br>	12 <br> 345 </tt></td>
+		  <td><tt>Total: 5 individuos <br>
+			Total da casta 1: 1 <br>
+			Total da casta 2: 1 <br>
+			Total da casta 3: 1 <br>
+			Total da casta 4: 1 <br>
+			Total da casta 5: 1 <br>
+			Percentual da casta 1: 20.00 <br>
+			Percentual da casta 2: 20.00 <br>
+			Percentual da casta 3: 20.00 <br>
+			Percentual da casta 4: 20.00 <br>
+			Percentual da casta 5: 20.00
+		  </tt></td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>2</td>
+		  <td><tt> 5 6 <br>
+		           1111111222 <br>
+		           3434343435 <br>
+		           33355 <br>
+		           6666444 <br>
+		           4444455664 </tt>
+		  </td>
+		  <td><tt>Total: 42 individuos <br>
+			Total da casta 1: 7 <br>
+			Total da casta 2: 3 <br>
+			Total da casta 3: 8 <br>
+			Total da casta 4: 13 <br>
+			Total da casta 5: 5 <br>
+			Total da casta 6: 6 <br>
+			Percentual da casta 1: 16.67 <br>
+			Percentual da casta 2: 7.14 <br>
+			Percentual da casta 3: 19.05 <br>
+			Percentual da casta 4: 30.95 <br>
+			Percentual da casta 5: 11.90 <br>
+			Percentual da casta 6: 14.29
+		  </tt>
+		  </td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>3</td>
+		  <td><tt> 1 1 <br>
+		           1111
+		  </tt></td>
+		  <td><tt>Total: 4 individuos <br>
+			Total da casta 1: 4 <br>
+			Percentual da casta 1: 100.00 <br>
+		  </tt>
+		  </td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>4</td>
+		  <td><tt> 1 9 <br>
+		           1 </tt>
+		  </td>
+		  <td><tt>Total: 1 individuos <br>
+				Total da casta 1: 1 <br>
+				Total da casta 2: 0 <br>
+				Total da casta 3: 0 <br>
+				Total da casta 4: 0 <br>
+				Total da casta 5: 0 <br>
+				Total da casta 6: 0 <br>
+				Total da casta 7: 0 <br>
+				Total da casta 8: 0 <br>
+				Total da casta 9: 0 <br>
+				Percentual da casta 1: 100.00 <br>
+				Percentual da casta 2: 0.00 <br>
+				Percentual da casta 3: 0.00 <br>
+				Percentual da casta 4: 0.00 <br>
+				Percentual da casta 5: 0.00 <br>
+				Percentual da casta 6: 0.00 <br>
+				Percentual da casta 7: 0.00 <br>
+				Percentual da casta 8: 0.00 <br>
+				Percentual da casta 9: 0.00	
+		  </tt>
+		  </td>
+	  </tr>
+	  <tr align="left" valign="top">
+		  <td>5</td>
+		  <td><tt> 4 4 <br>
+				   11221 <br>
+				   33221 <br>
+				   434433 <br>
+				   1234123423 <br>
+			  </tt>
+		  </td>
+		  <td><tt>Total: 26 individuos <br>
+				Total da casta 1: 6 <br>
+				Total da casta 2: 7 <br>
+				Total da casta 3: 8 <br>
+				Total da casta 4: 5 <br>
+				Percentual da casta 1: 23.08 <br>
+				Percentual da casta 2: 26.92 <br>
+				Percentual da casta 3: 30.77 <br>
+				Percentual da casta 4: 19.23 <br>
+		  </tt>
+		  </td>
+	  </tr>
+
+    </tbody></table><br>
+
+</body></html>

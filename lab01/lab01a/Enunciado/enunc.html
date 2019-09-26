@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ 
+<head>
+  <meta content="text/html; charset=UTF8" http-equiv="content-type">
+  <title>Laborat&oacute;rio 00</title>
+</head>
+          
+<body style="text-align: justify"> 
+        
+<em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+<br> <br> <hr>
+<h2> Lab 00 - Baby Steps </h2>
+
+<b> <em> Prazo de entrega: </em> </b> 16/03/2015 &agrave;s 13h59m59s <br>
+<b> <em> Peso: </em> </b> 0 <br> <br> <hr> <br>
+
+<p> Bem-vindo ao SuSy, ao IC e &agrave; Unicamp! E parab&eacute;ns pelo ingresso em um dos
+melhores cursos de Computa&ccedil;&atilde;o do pa&iacute;s. </p>
+
+<p> Voc&ecirc; teve seu primeiro acesso aos laborat&oacute;rios do IC, um lugar no qual
+passar&aacute; boa parte dos pr&oacute;ximos anos. Provavelmente, foi a primeira vez que voc&ecirc;
+ouviu as palavra Linux, distribui&ccedil;&atilde;o, ambiente de desktop, root, shell,
+compilador e gcc. </p>
+
+<p> Agora, &eacute; a vez de escrever seu primeiro programa. Normalmente, o primeiro
+programa de um computeiro &eacute; o "Hello World!": <br>
+
+<table style="font-family: monospace; text-align: left; font-size: 14px"
+        border="1" cellpadding="4" cellspacing="0">
+  <tr><td>
+    #include &lt;stdio.h&gt;<br><br>
+    int main() {<br>
+    &nbsp;&nbsp;&nbsp; printf("Hello World!\n");<br>
+    &nbsp;&nbsp;&nbsp; return 0;<br>
+    }
+  </td></tr>
+</table>
+</p>
+
+<p> No entanto, achamos que voc&ecirc; j&aacute; est&aacute; pronto para algo mais avan&ccedil;ado: fazer
+continhas! </p>
+
+<p> Salve o c&oacute;digo a seguir com o nome <tt>lab00.c</tt> e insira seu nome e RA
+nos locais indicados (nunca use acentua&ccedil;&atilde;o num programa em C): <br>
+
+<table style="font-family: monospace; text-align: left; font-size: 14px"
+        border="1" cellpadding="4" cellspacing="0">
+  <tr><td>
+    /* Nome: Seu nome aqui<br>
+    &nbsp;* RA: Seu RA aqui<br>
+    &nbsp;* Laboratorio 00 - Baby Steps */<br><br>
+    #include &lt;stdio.h&gt;<br><br>
+    int main() {<br>
+    &nbsp;&nbsp;&nbsp; int a, b;<br><br>
+    &nbsp;&nbsp;&nbsp; /* Fazendo leitura dos dados */<br>
+    &nbsp;&nbsp;&nbsp; scanf("%d %d", &a, &b);<br><br>
+    &nbsp;&nbsp;&nbsp; /* Imprimindo resposta */<br>
+    &nbsp;&nbsp;&nbsp; printf("Soma: %d\n", a + b);<br>
+    &nbsp;&nbsp;&nbsp; printf("Diferenca: %d\n", a - b);<br>
+    &nbsp;&nbsp;&nbsp; printf("Multiplicacao: %d\n", a * b);<br>
+    &nbsp;&nbsp;&nbsp; printf("Divisao: %d\n", a / a);<br>
+    &nbsp;&nbsp;&nbsp; printf("Resto da divisao: %d\n", a % b);<br><br>
+    &nbsp;&nbsp;&nbsp; return 0;<br>
+    }
+  </td></tr>
+</table>
+</p>
+</p>
+
+<p> Pr&oacute;ximos passos:
+<ul>
+  <li> Compile o c&oacute;digo com o comando <tt>gcc lab00.c -o lab00 </tt> (se voc&ecirc;
+  seguiu nossos conselhos at&eacute; agora, seu gcc est&aacute; com um <i>alias</i> e o
+  comando anterior &eacute;, na verdade, 
+  <tt>gcc -ansi -pedantic -Wall -Werror -lm lab00.c -o lab00</tt>) </li>
+  <li> Execute seu programa com o comando <tt>./lab00</tt> </li>
+  <li> Digite dois n&uacute;meros quaisquer e teste seu programa </li>
+  <li> Baixe os casos de teste da tarefa e verifique se a sa&iacute;da do seu programa
+  &eacute; igual &agrave; sa&iacute;da esperada (note que existe um erro no programa, apesar da
+  compila&ccedil;&atilde;o ter ocorrido sem problemas) </li>
+  <li> Envie o c&oacute;digo ainda errado do programa para o SuSy e observe o resultado
+  apresentado na tela de submiss&atilde;o </li>
+  <li> Encontre e corrija o erro existente </li>
+  <li> Teste seu programa novamente com os casos de teste da tarefa </li>
+  <li> Envie novamente seu c&oacute;digo para o SuSy </li>
+</ul>
+</p>
+
+<h3> Entrada </h3>
+<ul>
+   <li> O programa recebe dois inteiros <tt>a</tt> e <tt>b</tt>, separados por
+   espa&ccedil;o, que indicam os operandos (<tt>0 &le; a &le; 1000</tt> e <tt>1 &le; b
+           &le; 1000</tt>). </li>
+</ul>
+
+<h3> Sa&iacute;da </h3>
+<ul>
+  <li> Seu programa deve imprimir os resultados das opera&ccedil;&otilde;es de soma,
+  diferen&ccedil;a, multiplica&ccedil;&atilde;o, divis&atilde;o e resto entre os inteiros dados, conforme
+  mostrado nos exemplos. </li>
+</ul>
+
+<h3> Exemplos </h3>
+
+<table style="font-family: monospace; text-align: left; font-size: 14px"
+        border="1" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr align="center">
+      <td> <b><em> # </em></b> </td>
+      <td> <b><em> Entrada </em></b> </td>
+      <td> <b><em> Sa&iacute;da </em></b> </td>
+    </tr>
+    <tr valign="top">
+      <td> 1 </td>
+      <td> 18 18 </td>
+      <td>
+        Soma: 36 <br>
+        Diferenca: 0 <br>
+        Multiplicacao: 324 <br>
+        Divisao: 1 <br>
+        Resto da divisao: 0 <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td> 2 </td>
+      <td> 24 15 </td>
+      <td>
+        Soma: 39 <br>
+        Diferenca: 9 <br>
+        Multiplicacao: 360 <br>
+        Divisao: 1 <br>
+        Resto da divisao: 9 <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td> 3 </td>
+      <td> 873 100 </td>
+      <td>
+        Soma: 973 <br>
+        Diferenca: 773 <br>
+        Multiplicacao: 87300 <br>
+        Divisao: 8 <br>
+        Resto da divisao: 73 <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br> <br>
+
+</body>
+
+</html>

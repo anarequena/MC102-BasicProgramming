@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 15b</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 15b - &Oacute; o CR!</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 29/06/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 10 <br> <br> <hr> <br>
+
+    <p align="justify">
+    Em um dos primeiros laborat&oacute;rios, vimos que o <i>Coeficiente de Rendimento</i> (CR) &eacute; o &iacute;ndice que mede o desempenho acad&ecirc;mico de um aluno ao longo de seu curso. Por essa raz&atilde;o, o CR &eacute; geralmente o principal fator considerado pela universidade para preenchimento das vagas oferecidas durante o processo de matr&iacute;cula, classifica&ccedil;&atilde;o do aluno em sua turma e at&eacute; sele&ccedil;&atilde;o de candidatos para realizar programas de interc&acirc;mbio.
+    </p>
+
+    <p align="justify">
+    Justamente por ser um dos principais fatores em boa parte dos processos internos da universidade, os funcion&aacute;rios da DAC (Diretoria Acad&ecirc;mica) constumam se referir aos processos que dependem do CR como processos "&Oacute; o CR". Essa express&atilde;o resulta da simplifica&ccedil;&atilde;o fon&eacute;tica de "Olha o CR" e remete ao fato de que, para tomar decis&otilde;es, &eacute; necess&aacute;rio "olhar" o CR dos alunos. Al&eacute;m disso, essa express&atilde;o faz alus&atilde;o &agrave; sigla <a href="http://pt.wikipedia.org/wiki/Reconhecimento_%C3%B3tico_de_caracteres">OCR</a> (<i>Optical Character Recognition</i>), que refere-se a tecnologia de reconhecimento de caracteres a partir de uma imagem. Tal alus&atilde;o tem suas ra&iacute;zes no fato de que, para calcular o CR de um aluno, &eacute; preciso levar em considera&ccedil;&atilde;o tanto as notas obtidas nas disciplinas cursadas na Unicamp quanto, eventualmente, as notas obtidas nas disciplinas cursadas em outra universidade. As notas da Unicamp s&atilde;o preenchidas pelos professores, por&eacute;m as notas de outras universidades tem que ser processadas pelos funcion&aacute;rios da DAC. Esse processamento envolve digitalizar o hist&oacute;rico escolar do aluno oriundo de outra universidade e utilizar um OCR para "textualizar" o hist&oacute;rico digitalizado.
+    </p>
+
+    <p align="justify">
+    Um OCR nem sempre textualiza um documento digitalizado da maneira correta (inclusive, a imperfei&ccedil;&atilde;o dos OCRs serve de motiva&ccedil;&atilde;o para o projeto <a href="http://www.google.com/recaptcha/">reCAPTCHA</a> do Google). Uma das incorre&ccedil;&otilde;es observadas &eacute; o embaralhamento de blocos de texto, chamados <i>zonas</i>. Para entender melhor, observe o exemplo abaixo.
+    </p>
+
+    <div align="center">
+    Texto correto: <span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">Pinda</span><span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">monha</span><span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">ngaba</span><br/><br/>
+    Texto do  OCR: <span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">ngaba</span><span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">monha</span><span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">Pinda</span>
+    </div>
+
+    <p align="justify">
+    Neste exemplo, temos que a palavra "Pindamonhangaba" est&aacute; divida em tr&ecirc;s zonas de 5 letras cada. Al&eacute;m disso, temos que o OCR embaralhou as zonas, invertendo a ordem correta. Em casos como esse, as corre&ccedil;&otilde;es devem ser feitas manualmente usando um editor de texto.
+    </p>
+   
+    <p align="justify">
+    Seja uma corre&ccedil;&atilde;o o ato de mover, no texto errado, uma <i>substring</i> do texto correto para outra posi&ccedil;&atilde;o. N&oacute;s temos que, no exemplo anterior, s&atilde;o necess&aacute;rias duas corre&ccedil;&otilde;es. Por exemplo, primeiro podemos mover a <i>substring</i> "Pinda" para o come&ccedil;o, obtendo o texto "Pindangabamonha". Depois, podemos mover a <i>substring</i> "ngaba" para o final, obtendo o texto correto. O n&uacute;mero m&iacute;nimo de corre&ccedil;&otilde;es necess&aacute;rias para corrigir um texto produzido por um OCR &eacute; chamado de <i>m&eacute;trica de zoneamento</i>. Essa m&eacute;trica pode ser utilizada para medir a qualidade de um OCR: quanto maior a m&eacute;trica de zoneamento, menor a qualidade de um OCR.
+    </p>
+
+    <p align="justify">
+    A m&eacute;trica de zoneamento pode ser calculada resolvendo-se um problema combinat&oacute;rio chamado Problema da Ordena&ccedil;&atilde;o de Blocos. Dada uma permuta&ccedil;&atilde;o de n&uacute;mero inteiros <tt>&pi;</tt>, uma sequ&ecirc;ncia cont&iacute;gua maximal de elementos <tt>&pi;<sub>i</sub> &pi;<sub>i+1</sub> ... &pi;<sub>j</sub></tt>, com <tt>1 &le; i &le; j &le; n</tt>, tal que <tt>&pi;<sub>k</sub> = &pi;<sub>k+1</sub> - 1</tt> para todo <tt>k = i, i+1, ..., j-1</tt> &eacute; chamada de bloco. Por exemplo, na permuta&ccedil;&atilde;o <tt>&pi; = (<u>4</u> <u>2 3</u> <u>9</u> <u>5 6 7 8</u> <u>1</u>)</tt>, os blocos aparecem sublinhados. O Problema da Ordena&ccedil;&atilde;o de Blocos consiste em encontrar o menor n&uacute;mero de movimentos de blocos necess&aacute;rios para transformar uma permuta&ccedil;&atilde;o <tt>&pi;</tt> na permuta&ccedil;&atilde;o identidade <tt>&iota;<sub>n</sub> = (1 2 ... n)</tt>. Este n&uacute;mero &eacute; chamado de <i>dist&acirc;ncia de bloco</i> da permuta&ccedil;&atilde;o <tt>&pi;</tt> e &eacute; denotado por <tt>d(&pi;)</tt>.
+    </p>
+
+    <p align="justify">
+    Abaixo, voc&ecirc; ir&aacute; encontrar uma das poss&iacute;veis solu&ccedil;&otilde;es para o Problema da Ordena&ccedil;&atilde;o de Blocos para o caso em que <tt>&pi; = (8 7 6 5 10 4 3 9 2 1)</tt>. Os n&uacute;meros sublinhados indicam qual bloco foi movido para gerar a pr&oacute;xima permuta&ccedil;&atilde;o da sequ&ecirc;ncia. Note que <tt>d(&pi;) = 8</tt> nesse caso.
+    </p>
+
+    <div align="center"><tt>(8 7 6 5 10 4 3 <u>9</u> 2 1)<br>(<u>8</u> 7 6 5 9 10 4 3 2 1)<br>(<u>7</u> 6 5 8 9 10 4 3 2 1)<br>(<u>6</u> 5 7 8 9 10 4 3 2 1)<br>(<u>5 6 7 8 9 10</u> 4 3 2 1)<br>(<u>4</u> 3 2 1 5 6 7 8 9 10)<br>(<u>3</u> 2 1 4 5 6 7 8 9 10)<br>(<u>2</u> 1 3 4 5 6 7 8 9 10)<br>(1 2 3 4 5 6 7 8 9 10)</tt></div>
+
+    <p align="justify">
+    Dada uma permuta&ccedil;&atilde;o <tt>&pi;</tt> com <tt>n</tt> elementos, n&oacute;s podemos estend&ecirc;-la com outros dois elementos <tt>0</tt> e <tt>n+1</tt> tal que <tt>&pi; = (0 &pi;<sub>1</sub> &pi;<sub>2</sub> ... &pi;<sub>n</sub> n+1)</tt>. Note que, por simplicidade, a permuta&ccedil;&atilde;o estendida tamb&eacute;m &eacute; denotada por <tt>&pi;</tt>. N&oacute;s dizemos que um <i>breakpoint</i> ocorre entre um par de elementos <tt>&pi;<sub>i</sub></tt> e <tt>&pi;<sub>i+1</sub></tt>, com <tt>0 &le; i &le; n</tt>, se <tt>&pi;<sub>i+1</sub> - &pi;<sub>i</sub> &ne; 1</tt> (isto &eacute;, dois elementos que deveriam ser consecutivos na identidade mas n&atilde;o s&atilde;o na permuta&ccedil;&atilde;o <tt>&pi;</tt>). Na permuta&ccedil;&atilde;o <tt>&pi; = (0 * 3 * 2 * 4 5 * 1 * 6)</tt>, por exemplo, os breakpoints aparecem marcados com <tt>*</tt>. Com isso, podemos dizer alternativamente que um bloco &eacute; uma subsequ&ecirc;ncia maximal <tt>&pi;<sub>i</sub>,...,&pi;<sub>j</sub></tt> de <tt>&pi;</tt>, com <tt>1 &le; i &le; j &le; n</tt>, tal que os elementos da subsequ&ecirc;ncia n&atilde;o formam <i>breakpoints</i>. Como a permuta&ccedil;&atilde;o identidade &eacute; a &uacute;nica sem <i>breakpoints</i>, transformar uma permuta&ccedil;&atilde;o <tt>&pi;</tt> na permuta&ccedil;&atilde;o identidade &eacute; equivalente a remover os <i>breakpoints</i> da permuta&ccedil;&atilde;o <tt>&pi;</tt>.
+    </p>
+
+    <p align="justify">
+    O n&uacute;mero de <i>breakpoints</i> de uma permuta&ccedil;&atilde;o <tt>&pi;</tt> &eacute; denotado por <tt>b(&pi;)</tt>. Uma propriedade importante do Problema da Ordena&ccedil;&atilde;o de Blocos &eacute; que n&atilde;o &eacute; poss&iacute;vel ordenar uma permuta&ccedil;&atilde;o <tt>&pi;</tt> qualquer com menos do que <tt>b(&pi;)/3</tt> movimentos de bloco. Isso ocorre porque cada movimento de bloco pode remover no m&aacute;ximo 3 <i>breakpoints</i> de uma permuta&ccedil;&atilde;o. Por isso, dizemos que o limite inferior da dist&acirc;ncia de bloco de uma permuta&ccedil;&atilde;o <tt>&pi;</tt> &eacute; <tt>b(&pi;)/3</tt>, isto &eacute;, a dist&acirc;ncia de qualquer permuta&ccedil;&atilde;o ser&aacute; sempre um valor maior ou igual a <tt>b(&pi;)/3</tt>. Outra propriedade importante do Problema da Ordena&ccedil;&atilde;o de Blocos &eacute; que &eacute; sempre poss&iacute;vel ordenar uma permuta&ccedil;&atilde;o <tt>&pi;</tt> qualquer com no m&aacute;ximo <tt>b(&pi;)</tt> movimentos de bloco. Isso ocorre porque sempre existe pelo menos um movimento de bloco que remove no m&iacute;nimo um <i>breakpoint</i> de uma permuta&ccedil;&atilde;o (caso ela n&atilde;o seja a identidade). Por isso, dizemos que o limite superior da dist&acirc;ncia de bloco de uma permuta&ccedil;&atilde;o <tt>&pi;</tt> &eacute; <tt>b(&pi;)</tt>, isto &eacute;, a dist&acirc;ncia de qualquer permuta&ccedil;&atilde;o ser&aacute; sempre um valor menor ou igual a <tt>b(&pi;)</tt>.
+    </p>
+
+    <p align="justify">
+    Para entender de que maneira a dist&acirc;ncia de bloco &eacute; equivalente &agrave; m&eacute;trica de zoneamento, voltemos ao primeiro exemplo. N&oacute;s temos que o texto correto pode ser representado pela permuta&ccedil;&atilde;o identidade <tt>(1 2 3)</tt>, ou seja, a zona <span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">Pinda</span> &eacute; o elemento <tt>1</tt>, a zona <span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">monha</span> &eacute; o elemento <tt>2</tt> e a zona <span style="border: 1px solid;padding: 2px;margin: 5px;font-family: monospace;">ngaba</span> &eacute; o elemento <tt>3</tt>. Deste modo, note que o texto do OCR pode ser representado pela permuta&ccedil;&atilde;o <tt>(3 2 1)</tt>. A dist&acirc;ncia de bloco desta permuta&ccedil;&atilde;o &eacute; 2, igual &agrave; m&eacute;trica de zoneamento calculada anteriormente.
+    </p>
+
+    <p align="justify">
+    Os funcion&aacute;rios da DAC gostariam de determinar qual dos OCRs dispon&iacute;veis produz os melhores resultados. Para isso, eles pediram que voc&ecirc; os ajudassem implementando um programa que calcula a dist&acirc;ncia de bloco de uma permuta&ccedil;&atilde;o qualquer. Caso voc&ecirc; esteja desmotivado(a), os funcion&aacute;rios pediram que lhe fosse dado o seguinte aviso: &oacute; o CR!
+    </p>
+
+    <p align="justify">
+    <b>Observa&ccedil;&atilde;o:</b> <a href="http://mirza.ic.unicamp.br:8080/bioinfo/index.jsf" target="_blank">Neste link</a>, na se&ccedil;&atilde;o <span style="font-style:italic;">Search Rearrangement Distance</span>, voc&ecirc; pode descobrir n&atilde;o s&oacute; a dist&acirc;ncia de bloco como tamb&eacute;m a sequ&ecirc;ncia de permuta&ccedil;&otilde;es intermedi&aacute;rias da ordena&ccedil;&atilde;o de qualquer permuta&ccedil;&atilde;o com tamanho menor ou igual a 12. Para permuta&ccedil;&otilde;es com tamanho 13, &eacute; poss&iacute;vel apenas obter a dist&acirc;ncia. Basta digitar no campo <i>Permutation</i> a permuta&ccedil;&atilde;o desejada, escolher <i>Strip Move</i> no campo <i>Rearrangement model</i> e selecionar a op&ccedil;&atilde;o <i>Solution</i>.
+    </p>
+
+    <h3>Entrada</h3>
+    <ul>
+      <li>A primeira linha da entrada cont&eacute;m um &uacute;nico n&uacute;mero inteiro <tt>n</tt>, <tt>2 &le; n &le; 10</tt>, que indica o tamanho da permuta&ccedil;&atilde;o <tt>&pi;</tt>.</li>
+      <li>A pr&oacute;xima linha cont&eacute;m <tt>n</tt> inteiros positivos entre <tt>1</tt> e <tt>n</tt>, que representam a permuta&ccedil;&atilde;o <tt>&pi;</tt>.</li>
+    </ul>
+
+    <h3>Sa&iacute;da</h3>
+    Seu programa deve imprimir um &uacute;nico n&uacute;mero <tt>d</tt> que indica o valor da dist&acirc;ncia de bloco da permuta&ccedil;&atilde;o <tt>&pi;</tt>. 
+
+    <h3>Exemplos</h3>
+    <table cellpadding='2' cellspacing='0' border='1'>
+      <tr align='center'><td width='15px'><b><tt>#</tt></b></td><td width='150px'><b><tt>Entrada</tt></b></td><td width='150px'><b><tt>Sa&iacute;da</tt></b></td></tr>
+      <tr align='left' valign='top'><td>1</td><td><tt>3<br>3 2 1</tt></td><td><tt>2</tt></td></tr>
+      <tr align='left' valign='top'><td>2</td><td><tt>2<br>1 2</tt></td><td><tt>0</tt></td></tr>
+      <tr align='left' valign='top'><td>3</td><td><tt>4<br>2 1 4 3</tt></td><td><tt>2</tt></td></tr>
+      <tr align='left' valign='top'><td>4</td><td><tt>5<br>5 4 3 2 1</tt></td><td><tt>4</tt></td></tr>
+      <tr align='left' valign='top'><td>5</td><td><tt>6<br>5 4 2 1 6 3</tt></td><td><tt>4</tt></td></tr> 
+    </table><br>
+</body></html>

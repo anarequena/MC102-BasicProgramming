@@ -1,0 +1,253 @@
+<html>
+  
+  <head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <title>Laborat&oacute;rio 14b</title>
+  </head>
+  
+  <body style="text-align: justify"> 
+    
+    <em> <b> MC102 - Algoritmos e Programa&ccedil;&atilde;o de Computadores </b> </em> <br>
+    <em> <b> Turmas QRSTWY </b> </em> <br>
+    <em> <b> Instituto de Computa&ccedil;&atilde;o - Unicamp </b> </em> <br>
+    <em> <b> Professores: </b> H&eacute;lio Pedrini e Zanoni Dias </em> <br>
+    <em> <b> Monitores: </b> Andre Rodrigues Oliveira, Gustavo Rodrigues Galv&atilde;o, Javier Alvaro Vargas Mu&ntilde;oz e Thierry Pinheiro Moreira</em>
+
+    <br> <br> <hr>
+    <h2>Lab 14b - PaMonHa</h2>
+
+    <b> <em> Prazo de entrega: </em> </b> 22/06/2015 &agrave;s 13h59m59s <br>
+    <b> <em> Peso: </em> </b> 10 <br> <br> <hr> <br>
+    
+    <p align="justify">
+      Algumas empresas de constru&ccedil;&atilde;o civil notaram que &eacute; muito caro fazer <a href="http://pt.wikipedia.org/wiki/Lobby">lobbying</a> da forma convencional. Ap&oacute;s fazer algumas pesquisas, essas empresas acreditam que gastariam menos ao se juntarem e criarem um partido pol&iacute;tico pr&oacute;prio.
+    </p>
+
+    <p align="justify">
+      Para evitar a necessidade de eleger parlamentares, os empres&aacute;rios est&atilde;o interessados em "contratar" parlamentares que estejam dispostos em integrar o novo partido, que ser&aacute; denominado de Partido Monet&aacute;rio Habitacional (PaMonHa).
+    </p>
+    
+    <p align="justify">
+      Como mediadora, foi contratada a "300 Picaretas Sociedade An&ocirc;nima" (300 S/A), uma empresa que preza pelo sigilo e pela efici&ecirc;ncia em consultoria parlamentar.
+    </p>
+    
+    <p align="justify">
+      A 300 S/A possui uma lista atualizada com o valor necess&aacute;rio para aliciar cada parlamentar para o novo partido (como sabemos, todo parlamentar pode ser contratado por algum valor). Alguns parlamentares mais influentes garantem, pelo valor contratado, que tanto ele quanto os parlamentares sob sua influ&ecirc;ncia, mudem para o novo partido.
+    </p>
+    
+    <p align="justify">
+      Em posse do custo de cada parlamentar, da matriz de influ&ecirc;ncias e do n&uacute;mero m&iacute;nimo de parlamentares desejados para a funda&ccedil;&atilde;o do novo partido, a 300 S/A gostaria de minimizar o custo da opera&ccedil;&atilde;o (de modo a poder maximizar seu lucro na negocia&ccedil;&atilde;o com os empres&aacute;rios).
+    </p>
+    
+    <h3>Exemplo</h3>
+    
+    <p align="justify">
+      Suponha um parlamento composto por <tt>6</tt> pessoas, onde deseja-se formar um partido com <tt>4</tt> parlamentares. Considerando os custos dos parlamentares e a matriz de influ&ecirc;ncias (<tt>M</tt>), ambos abaixo, existem <tt>43</tt> formas distintas de montar um partido com pelo menos <tt>4</tt> parlamentares. A forma de menor custo &eacute; contratar os parlamentares <tt>2</tt> e <tt>6</tt>, que influenciam, respectivamente, os parlamentares <tt>1</tt> e <tt>3</tt>, com um custo total de <tt>210 + 150 = 360</tt>. Note que a posi&ccedil;&atilde;o <tt>M[i,j]</tt> da matriz de influ&ecirc;ncias possui valor <tt>1</tt> se e somente se o parlamentar <tt>i</tt> tem influ&ecirc;ncia sobre o parlamentar <tt>j</tt> (caso contr&aacute;rio <tt>M[i,j] = 0</tt>).
+    </p>
+    
+    <center>
+      <strong>
+        Custos dos parlamentares:
+      </strong>
+    </center>
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <td align="center" width="30px">1</td> 
+        <td align="center" width="30px"><strong>2</strong></td> 
+        <td align="center" width="30px">3</td> 
+        <td align="center" width="30px">4</td> 
+        <td align="center" width="30px">5</td> 
+        <td align="center" width="30px"><strong>6</strong></td>
+      <tr>
+        <td align="center">100</td> 
+        <td align="center"><strong>210</strong></td> 
+        <td align="center">150</td> 
+        <td align="center">120</td> 
+        <td align="center">1000</td> 
+        <td align="center"><strong>150</strong></td>
+    </table>
+    
+    <br><br>  
+    
+    <center>
+      <strong>
+        Matriz de influ&ecirc;ncias:
+        </strong>
+    </center>
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td><strong>1</strong</td>
+        <td><strong>1</strong></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <td>0</td>
+        <td>0</td>
+        <td><strong>1</strong></td>
+        <td>0</td>
+        <td>0</td>
+        <td><strong>1</strong></td>
+      </tr>
+    </table>
+    
+    <p align="justify">
+      Exemplos de outras formas de montar um partido com pelo menos <tt>4</tt> parlamentares:
+    </p>
+    
+    <ul>
+      <li>Contratar os parlamentares <tt>1</tt> e <tt>5</tt>, que garantir&atilde;o a forma&ccedil;&atilde;o de um partido com 4 parlamentares (<tt>1</tt>, <tt>2</tt>, <tt>5</tt> e <tt>6</tt>) com custo <tt>100 + 1000 = 1100</tt>.
+      <li>Contratar os parlamentares <tt>1</tt>, <tt>2</tt> e <tt>3</tt>, que garantir&atilde;o a forma&ccedil;&atilde;o de um partido com 4 parlamentares (<tt>1</tt>, <tt>2</tt>, <tt>3</tt> e <tt>6</tt>) com custo <tt>100 + 210 + 150 = 460</tt>.
+      <li>Contratar os parlamentares <tt>4</tt>, <tt>5</tt> e <tt>6</tt>, que garantir&atilde;o a forma&ccedil;&atilde;o de um partido com 5 parlamentares (<tt>2</tt>, <tt>3</tt>, <tt>4</tt>, <tt>5</tt> e <tt>6</tt>) com custo <tt>120 + 1000 + 150 = 1270</tt>.
+      <li>Contratar todos os <tt>6</tt> parlamentares, com custo <tt>100 + 210 + 150 + 120 + 1000 + 150 = 1580</tt>.
+    </ul>
+    
+    <h3>Entrada</h3>
+
+    <ul>
+      <li>Seu programa deve receber uma linha com dois n&uacute;meros inteiros: o n&uacute;mero de parlamentares dispon&iacute;veis (<tt>1 &le; n &le; 20</tt>) e o tamanho m&iacute;nimo do novo partido (<tt>1 &le; k &le; n</tt>).</li>
+      <br>
+      <li>Em seguida, o programa dever&aacute; ler uma linha com <tt>n</tt> n&uacute;meros inteiros positivos, correspondentes ao custo de cada parlamentar.</li>
+      <br>
+      <li>Por &uacute;ltimo, o programa dever&aacute; ler <tt>n</tt> linhas com <tt>n</tt> d&iacute;gitos bin&aacute;rios cada, correspondentes aos valores da matriz de influ&ecirc;ncia (<tt>M</tt>). Se a posi&ccedil;&atilde;o <tt>M[i,j]</tt>, correspondente &agrave; linha <tt>i</tt> e &agrave; coluna <tt>j</tt>, possuir valor <tt>1</tt>, ent&atilde;o o parlamentar <tt>i</tt> tem influ&ecirc;ncia sobre o parlamentear <tt>j</tt>, ou seja, ao contratar o parlamentar <tt>i</tt>, ele levar&aacute; consigo o parlamentar <tt>j</tt> para o novo partido. Se o valor for <tt>0</tt>, ent&atilde;o n&atilde;o h&aacute; influ&ecirc;ncia do parlamentar <tt>i</tt> em rela&ccedil;&atilde;o ao parlamentar <tt>j</tt>. Note que todo parlamentar tem influ&ecirc;ncia sobre si mesmo (<tt>M[k,k] = 1</tt>, com <tt>1 &le; k &le; n</tt>).</li>
+    </ul>
+    
+    <h3>Sa&iacute;da</h3>
+
+    <p align="justify">Seu programa deve imprimir um &uacute;nico n&uacute;mero inteiro correspondente ao custo m&iacute;nimo para a forma&ccedil;&atilde;o de um partido com k parlamentares.</p>
+
+    <h3>Exemplos</h3>
+
+    <table border="1" cellpadding="2" cellspacing="0">
+      <tbody>
+        <tr align="center">
+          <td width="15px"><b><tt>#</tt></b></td>
+          <td width="325px"><b><tt>Entrada</tt></b></td>
+          <td width="275px"> <b><tt>Sa&iacute;da</tt></b></td>
+        </tr>
+        
+        <tr align="left" valign="top">
+          <td>1</td>
+          <td><tt>6 4<br>
+                  100 210 150 120 1000 150<br>
+                  1 0 0 0 0 1<br>
+                  1 1 0 0 0 0<br>
+                  0 0 1 0 0 0<br>
+                  0 0 0 1 0 0<br>
+                  0 1 0 0 1 0<br>
+                  0 0 1 0 0 1<br>
+          </tt></td>
+          <td><tt>
+              360 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>2</td>
+          <td><tt>2 2<br>
+                  100 15<br>
+                  1 1<br>
+                  0 1<br>
+          </tt></td>
+          <td><tt>
+            100 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>3</td>
+          <td><tt>5 3<br>
+                  30 15 15 20 22<br>
+                  1 1 1 0 0<br>
+                  0 1 0 0 0<br>
+                  0 0 1 0 0<br>
+                  0 0 0 1 0<br>
+                  0 0 0 1 1<br>
+          </tt></td>
+          <td><tt>
+              30<br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>4</td>
+          <td><tt>4 4<br>
+                  50 40 30 50<br>
+                  1 0 1 1<br>
+                  1 1 0 0<br>
+                  0 1 1 0<br>
+                  1 1 0 1<br>
+          </tt></td>
+          <td><tt>
+              80 <br>
+          </tt></td>
+        </tr>
+
+        <tr align="left" valign="top">
+          <td>5</td>
+          <td><tt>6 3<br>
+                  10 20 60 50 40 30<br>
+                  1 0 0 0 0 0<br>
+                  0 1 0 0 0 0<br>
+                  0 0 1 0 0 0<br>
+                  0 0 0 1 0 0<br>
+                  0 0 0 0 1 0<br>
+                  0 0 0 0 0 1<br>
+          </tt></td>
+          <td><tt>
+              60 <br>
+          </tt></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
